@@ -7,6 +7,10 @@
 
 #include"AutonomousSourceCode.h"
 
+void AutonomousSourceCodeInitDrivers(){
+
+}
+
 void AutonomousSourceCodeMain(){
 
 }
