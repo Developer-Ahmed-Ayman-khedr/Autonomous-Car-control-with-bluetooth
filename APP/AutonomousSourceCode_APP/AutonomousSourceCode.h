@@ -41,6 +41,8 @@
   GLOBAL FUNCTIONS Prototypes
 *******************************************/
 
+void AutonomousSourceCodeInitDrivers();
+
 void AutonomousSourceCodeMain();
 
 #endif /* APP_AUTONOMOUSSOURCECODE_APP_AUTONOMOUSSOURCECODE_H_ */

@@ -8,6 +8,9 @@
 #include"AutonomousSourceCode.h"
 
 int main(){
-	AutonomousSourceCodeMain();
+	AutonomousSourceCodeInitDrivers();
+	while(1){
+		AutonomousSourceCodeMain();
+	}
 	return 0;
 }
