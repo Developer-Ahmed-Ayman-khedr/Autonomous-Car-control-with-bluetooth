@@ -25,7 +25,7 @@
 static void (*TIMER0_callBack)(void);
 
 //call back fun
-void TIMER_voidSetCallBack(  void (*ptr_timer)(void) )
+void TIMER0_voidSetCallBack(  void (*ptr_timer)(void) )
 {
 
 	if(ptr_timer!=NULL)

@@ -36,8 +36,8 @@
 
 void ULTRASONIC_voidInit();
 
-void ULTRASONIC_voidStart();
+void ULTRASONIC_VoidStart();
 
-u8 ULTRASONIC_u8Read();
+u32 ULTRASONIC_VoidVal();
 
 #endif /* HAL_ULTRASONIC_ULTRASONIC_INTERFACE_H_ */

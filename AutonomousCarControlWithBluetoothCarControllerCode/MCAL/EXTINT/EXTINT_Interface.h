@@ -29,8 +29,8 @@
 #define EXT1_ID (u8)(1)
 #define EXT2_ID (u8)(2)
 
-#define FALLING_EDGE 0
-#define RISING_EDGE  1
+#define FALLING_EDGE (u8)0
+#define RISING_EDGE  (u8)1
 
 /******************************************
   GLOBAL FUNCTIONS MACROS

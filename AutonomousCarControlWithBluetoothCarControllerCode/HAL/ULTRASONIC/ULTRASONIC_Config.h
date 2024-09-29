@@ -24,14 +24,14 @@
 /*
  * choose Trigger pin
  */
-#define TRIGGER_PIN   PIN7
+#define TRIGGER_PIN   PIN3
 #define TRIGGER_PORT  PORTD_ID
 
 /*
  * Echo pin
  */
-#define ECHO_PIN    PIN4
-#define ECHO_PORT   PORTA_ID
+#define ECHO_PIN    PIN2
+#define ECHO_PORT   PORTD_ID
 
 /******************************************
   GLOBAL FUNCTIONS MACROS
