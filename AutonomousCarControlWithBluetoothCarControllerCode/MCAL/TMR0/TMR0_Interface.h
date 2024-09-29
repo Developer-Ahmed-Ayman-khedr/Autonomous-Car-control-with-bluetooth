@@ -41,7 +41,7 @@ u8 TIMER0_VoidVal(void );
 
 void TIMER0_VoidSetPWMCompareMatch(u8 copy_u8Val );
 
-void TIMER_voidSetCallBack(  void (*ptr_timer)(void) );
+void TIMER0_voidSetCallBack(  void (*ptr_timer)(void) );
 
 
 void WDT_VoidEnabel(void );
