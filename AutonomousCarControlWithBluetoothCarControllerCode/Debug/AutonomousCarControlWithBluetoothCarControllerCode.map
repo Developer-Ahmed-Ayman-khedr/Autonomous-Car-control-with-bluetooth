@@ -165,7 +165,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2e9a
+.text           0x00000000     0x336e
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -470,24 +470,33 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text.LCD_MTR_VoidCustomCharacters
                 0x00002aa8      0x15e ./APP/main.o
                 0x00002aa8                LCD_MTR_VoidCustomCharacters
- .text.main     0x00002c06      0x1a0 ./APP/main.o
-                0x00002c06                main
- .text.libgcc   0x00002da6       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00002da6                __mulsi3
- .text.libgcc   0x00002de4       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00002de4                __udivmodsi4
- .text.libgcc   0x00002e28        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00002e28        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00002e28        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00002e28       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00002e28                __prologue_saves__
- .text.libgcc   0x00002e60       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00002e60                __epilogue_restores__
-                0x00002e96                . = ALIGN (0x2)
+ .text.Ultrasonic_Servo_BoolCheckRightSide
+                0x00002c06      0x148 ./APP/main.o
+                0x00002c06                Ultrasonic_Servo_BoolCheckRightSide
+ .text.Ultrasonic_Servo_BoolCheckFrontSide
+                0x00002d4e      0x148 ./APP/main.o
+                0x00002d4e                Ultrasonic_Servo_BoolCheckFrontSide
+ .text.Ultrasonic_Servo_BoolCheckLiftSide
+                0x00002e96      0x148 ./APP/main.o
+                0x00002e96                Ultrasonic_Servo_BoolCheckLiftSide
+ .text.main     0x00002fde      0x29c ./APP/main.o
+                0x00002fde                main
+ .text.libgcc   0x0000327a       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000327a                __mulsi3
+ .text.libgcc   0x000032b8       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000032b8                __udivmodsi4
+ .text.libgcc   0x000032fc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000032fc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000032fc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000032fc       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000032fc                __prologue_saves__
+ .text.libgcc   0x00003334       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00003334                __epilogue_restores__
+                0x0000336a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002e96        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00002e96                exit
-                0x00002e96                _exit
+ .fini9         0x0000336a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000336a                exit
+                0x0000336a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -506,11 +515,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002e96        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000336a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00002e9a                _etext = .
+                0x0000336e                _etext = .
 
-.data           0x00800060      0x136 load address 0x00002e9a
+.data           0x00800060      0x164 load address 0x0000336e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -525,127 +534,130 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .data          0x00800060        0x0 ./HAL/SERVO/SERVO_Program.o
  .data          0x00800060        0x0 ./HAL/MTR/MTR_Program.o
  .data          0x00800060        0x0 ./HAL/LCD/LCD_Program.o
- .data          0x00800060        0x6 ./APP/main.o
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x00800066        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x00800066        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x00800066                __thenan_sf
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x0080006e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .data          0x0080006e      0x100 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
-                0x0080006e                __clz_tab
+ .data          0x00800060       0x34 ./APP/main.o
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x00800094        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x00800094        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x00800094                __thenan_sf
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x0080009c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x0080009c      0x100 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+                0x0080009c                __clz_tab
  *(.data*)
- .data.Ttick    0x0080016e        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x0080016e                Ttick
+ .data.Ttick    0x0080019c        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x0080019c                Ttick
  .data.LCD_MTR_Reverce_ADDRESS
-                0x00800172        0x1 ./APP/main.o
-                0x00800172                LCD_MTR_Reverce_ADDRESS
+                0x008001a0        0x1 ./APP/main.o
+                0x008001a0                LCD_MTR_Reverce_ADDRESS
  .data.LCD_MTR_Right_ADDRESS
-                0x00800173        0x1 ./APP/main.o
-                0x00800173                LCD_MTR_Right_ADDRESS
+                0x008001a1        0x1 ./APP/main.o
+                0x008001a1                LCD_MTR_Right_ADDRESS
  .data.LCD_MTR_Lift_ADDRESS
-                0x00800174        0x1 ./APP/main.o
-                0x00800174                LCD_MTR_Lift_ADDRESS
+                0x008001a2        0x1 ./APP/main.o
+                0x008001a2                LCD_MTR_Lift_ADDRESS
  *(.rodata)
  *(.rodata*)
- .rodata.C.3.1342
-                0x00800175        0x8 ./APP/main.o
- .rodata.C.2.1341
-                0x0080017d        0x8 ./APP/main.o
- .rodata.C.1.1340
-                0x00800185        0x8 ./APP/main.o
- .rodata.C.0.1339
-                0x0080018d        0x8 ./APP/main.o
+ .rodata.C.3.1330
+                0x008001a3        0x8 ./APP/main.o
+ .rodata.C.2.1329
+                0x008001ab        0x8 ./APP/main.o
+ .rodata.C.1.1328
+                0x008001b3        0x8 ./APP/main.o
+ .rodata.C.0.1327
+                0x008001bb        0x8 ./APP/main.o
  *(.gnu.linkonce.d*)
-                0x00800196                . = ALIGN (0x2)
- *fill*         0x00800195        0x1 00
-                0x00800196                _edata = .
-                0x00800196                PROVIDE (__data_end, .)
+                0x008001c4                . = ALIGN (0x2)
+ *fill*         0x008001c3        0x1 00
+                0x008001c4                _edata = .
+                0x008001c4                PROVIDE (__data_end, .)
 
-.bss            0x00800196       0x1a
-                0x00800196                PROVIDE (__bss_start, .)
+.bss            0x008001c4       0x1e
+                0x008001c4                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800196        0x0 ./MCAL/UART/UART_Program.o
- .bss           0x00800196        0x0 ./MCAL/TMR2/TMR2_Program.o
- .bss           0x00800196        0x0 ./MCAL/TMR1/TMR1_Program.o
- .bss           0x00800196        0x0 ./MCAL/TMR0/TMR0_Program.o
- .bss           0x00800196        0x0 ./MCAL/GIE/GIE_Program.o
- .bss           0x00800196        0x0 ./MCAL/EXTINT/EXTINT_Program.o
- .bss           0x00800196        0x0 ./MCAL/DIO/DIO_Program.o
- .bss           0x00800196        0x0 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
- .bss           0x00800196        0x0 ./HAL/SERVO/SERVO_Program.o
- .bss           0x00800196        0x0 ./HAL/MTR/MTR_Program.o
- .bss           0x00800196        0x0 ./HAL/LCD/LCD_Program.o
- .bss           0x00800196        0x0 ./APP/main.o
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
- .bss           0x00800196        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008001c4        0x0 ./MCAL/UART/UART_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/TMR2/TMR2_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/TMR1/TMR1_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/TMR0/TMR0_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/GIE/GIE_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/EXTINT/EXTINT_Program.o
+ .bss           0x008001c4        0x0 ./MCAL/DIO/DIO_Program.o
+ .bss           0x008001c4        0x0 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+ .bss           0x008001c4        0x0 ./HAL/SERVO/SERVO_Program.o
+ .bss           0x008001c4        0x0 ./HAL/MTR/MTR_Program.o
+ .bss           0x008001c4        0x0 ./HAL/LCD/LCD_Program.o
+ .bss           0x008001c4        0x0 ./APP/main.o
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x008001c4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
  *(.bss*)
  .bss.TIMER0_callBack
-                0x00800196        0x2 ./MCAL/TMR0/TMR0_Program.o
+                0x008001c4        0x2 ./MCAL/TMR0/TMR0_Program.o
  .bss.ptr_ArrCallBack
-                0x00800198        0x6 ./MCAL/EXTINT/EXTINT_Program.o
- .bss.TONTime   0x0080019e        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x0080019e                TONTime
- .bss.dis       0x008001a2        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x008001a2                dis
+                0x008001c6        0x6 ./MCAL/EXTINT/EXTINT_Program.o
+ .bss.TONTime   0x008001cc        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x008001cc                TONTime
+ .bss.dis       0x008001d0        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x008001d0                dis
  .bss.OvCounter
-                0x008001a6        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x008001a6                OvCounter
- .bss.TimeOn    0x008001aa        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x008001aa                TimeOn
- .bss.edge      0x008001ae        0x1 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
-                0x008001ae                edge
+                0x008001d4        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x008001d4                OvCounter
+ .bss.TimeOn    0x008001d8        0x4 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x008001d8                TimeOn
+ .bss.edge      0x008001dc        0x1 ./HAL/ULTRASONIC/ULTRASONIC_Program.o
+                0x008001dc                edge
  .bss.LCD_MTR_Forward_ADDRESS
-                0x008001af        0x1 ./APP/main.o
-                0x008001af                LCD_MTR_Forward_ADDRESS
+                0x008001dd        0x1 ./APP/main.o
+                0x008001dd                LCD_MTR_Forward_ADDRESS
+ .bss.UltrasonicRead
+                0x008001de        0x4 ./APP/main.o
+                0x008001de                UltrasonicRead
  *(COMMON)
-                0x008001b0                PROVIDE (__bss_end, .)
-                0x00002e9a                __data_load_start = LOADADDR (.data)
-                0x00002fd0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008001e2                PROVIDE (__bss_end, .)
+                0x0000336e                __data_load_start = LOADADDR (.data)
+                0x000034d2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001b0        0x0
-                0x008001b0                PROVIDE (__noinit_start, .)
+.noinit         0x008001e2        0x0
+                0x008001e2                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008001b0                PROVIDE (__noinit_end, .)
-                0x008001b0                _end = .
-                0x008001b0                PROVIDE (__heap_start, .)
+                0x008001e2                PROVIDE (__noinit_end, .)
+                0x008001e2                _end = .
+                0x008001e2                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -663,7 +675,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x3048
+.stab           0x00000000     0x34b0
  *(.stab)
  .stab          0x00000000      0x72c ./MCAL/UART/UART_Program.o
  .stab          0x0000072c      0x2a0 ./MCAL/TMR2/TMR2_Program.o
@@ -686,12 +698,12 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0x5ac (size before relaxing)
  .stab          0x000023b8      0x8a0 ./HAL/LCD/LCD_Program.o
                                 0xae0 (size before relaxing)
- .stab          0x00002c58      0x3f0 ./APP/main.o
-                                0x624 (size before relaxing)
+ .stab          0x00002c58      0x858 ./APP/main.o
+                                0xa8c (size before relaxing)
 
-.stabstr        0x00000000     0x1dee
+.stabstr        0x00000000     0x1d7c
  *(.stabstr)
- .stabstr       0x00000000     0x1dee ./MCAL/UART/UART_Program.o
+ .stabstr       0x00000000     0x1d7c ./MCAL/UART/UART_Program.o
 
 .stab.excl
  *(.stab.excl)

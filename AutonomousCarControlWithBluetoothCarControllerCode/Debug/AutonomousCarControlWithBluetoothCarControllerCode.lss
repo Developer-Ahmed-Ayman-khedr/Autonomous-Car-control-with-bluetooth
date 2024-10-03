@@ -3,33 +3,33 @@ AutonomousCarControlWithBluetoothCarControllerCode.elf:     file format elf32-av
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00002e9a  00000000  00000000  00000094  2**1
+  0 .text         0000336e  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000136  00800060  00002e9a  00002f2e  2**0
+  1 .data         00000164  00800060  0000336e  00003402  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          0000001a  00800196  00800196  00003064  2**0
+  2 .bss          0000001e  008001c4  008001c4  00003566  2**0
                   ALLOC
-  3 .stab         00003048  00000000  00000000  00003064  2**2
+  3 .stab         000034b0  00000000  00000000  00003568  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00001dee  00000000  00000000  000060ac  2**0
+  4 .stabstr      00001d7c  00000000  00000000  00006a18  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 000001a0  00000000  00000000  00007e9a  2**0
+  5 .debug_aranges 000001a0  00000000  00000000  00008794  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 000001f2  00000000  00000000  0000803a  2**0
+  6 .debug_pubnames 000001f2  00000000  00000000  00008934  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   0000240b  00000000  00000000  0000822c  2**0
+  7 .debug_info   0000240b  00000000  00000000  00008b26  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00001386  00000000  00000000  0000a637  2**0
+  8 .debug_abbrev 00001386  00000000  00000000  0000af31  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   000011d6  00000000  00000000  0000b9bd  2**0
+  9 .debug_line   000011d6  00000000  00000000  0000c2b7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  000001c0  00000000  00000000  0000cb94  2**2
+ 10 .debug_frame  000001c0  00000000  00000000  0000d490  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    000002f6  00000000  00000000  0000cd54  2**0
+ 11 .debug_str    000002f6  00000000  00000000  0000d650  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000096e  00000000  00000000  0000d04a  2**0
+ 12 .debug_loc    0000096e  00000000  00000000  0000d946  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  0000d9b8  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000e2b4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -69,8 +69,8 @@ Disassembly of section .text:
       60:	11 e0       	ldi	r17, 0x01	; 1
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	ea e9       	ldi	r30, 0x9A	; 154
-      68:	fe e2       	ldi	r31, 0x2E	; 46
+      66:	ee e6       	ldi	r30, 0x6E	; 110
+      68:	f3 e3       	ldi	r31, 0x33	; 51
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
 0000006c <.do_copy_data_loop>:
@@ -78,13 +78,13 @@ Disassembly of section .text:
       6e:	0d 92       	st	X+, r0
 
 00000070 <.do_copy_data_start>:
-      70:	a6 39       	cpi	r26, 0x96	; 150
+      70:	a4 3c       	cpi	r26, 0xC4	; 196
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
 
 00000076 <__do_clear_bss>:
       76:	11 e0       	ldi	r17, 0x01	; 1
-      78:	a6 e9       	ldi	r26, 0x96	; 150
+      78:	a4 ec       	ldi	r26, 0xC4	; 196
       7a:	b1 e0       	ldi	r27, 0x01	; 1
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -92,11 +92,11 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	a0 3b       	cpi	r26, 0xB0	; 176
+      80:	a2 3e       	cpi	r26, 0xE2	; 226
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-      86:	0e 94 03 16 	call	0x2c06	; 0x2c06 <main>
-      8a:	0c 94 4b 17 	jmp	0x2e96	; 0x2e96 <_exit>
+      86:	0e 94 ef 17 	call	0x2fde	; 0x2fde <main>
+      8a:	0c 94 b5 19 	jmp	0x336a	; 0x336a <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -148,7 +148,7 @@ Disassembly of section .text:
       ec:	b0 e0       	ldi	r27, 0x00	; 0
       ee:	eb e7       	ldi	r30, 0x7B	; 123
       f0:	f0 e0       	ldi	r31, 0x00	; 0
-      f2:	0c 94 14 17 	jmp	0x2e28	; 0x2e28 <__prologue_saves__>
+      f2:	0c 94 7e 19 	jmp	0x32fc	; 0x32fc <__prologue_saves__>
       f6:	dc 01       	movw	r26, r24
       f8:	2b 01       	movw	r4, r22
       fa:	fa 01       	movw	r30, r20
@@ -173,7 +173,7 @@ Disassembly of section .text:
      120:	98 17       	cp	r25, r24
      122:	09 f4       	brne	.+2      	; 0x126 <_fpadd_parts+0x3c>
      124:	28 c1       	rjmp	.+592    	; 0x376 <_fpadd_parts+0x28c>
-     126:	a6 e6       	ldi	r26, 0x66	; 102
+     126:	a4 e9       	ldi	r26, 0x94	; 148
      128:	b0 e0       	ldi	r27, 0x00	; 0
      12a:	25 c1       	rjmp	.+586    	; 0x376 <_fpadd_parts+0x28c>
      12c:	84 30       	cpi	r24, 0x04	; 4
@@ -473,14 +473,14 @@ Disassembly of section .text:
      378:	cd b7       	in	r28, 0x3d	; 61
      37a:	de b7       	in	r29, 0x3e	; 62
      37c:	e2 e1       	ldi	r30, 0x12	; 18
-     37e:	0c 94 30 17 	jmp	0x2e60	; 0x2e60 <__epilogue_restores__>
+     37e:	0c 94 9a 19 	jmp	0x3334	; 0x3334 <__epilogue_restores__>
 
 00000382 <__subsf3>:
      382:	a0 e2       	ldi	r26, 0x20	; 32
      384:	b0 e0       	ldi	r27, 0x00	; 0
      386:	e7 ec       	ldi	r30, 0xC7	; 199
      388:	f1 e0       	ldi	r31, 0x01	; 1
-     38a:	0c 94 20 17 	jmp	0x2e40	; 0x2e40 <__prologue_saves__+0x18>
+     38a:	0c 94 8a 19 	jmp	0x3314	; 0x3314 <__prologue_saves__+0x18>
      38e:	69 83       	std	Y+1, r22	; 0x01
      390:	7a 83       	std	Y+2, r23	; 0x02
      392:	8b 83       	std	Y+3, r24	; 0x03
@@ -518,14 +518,14 @@ Disassembly of section .text:
      3d8:	0e 94 71 05 	call	0xae2	; 0xae2 <__pack_f>
      3dc:	a0 96       	adiw	r28, 0x20	; 32
      3de:	e6 e0       	ldi	r30, 0x06	; 6
-     3e0:	0c 94 3c 17 	jmp	0x2e78	; 0x2e78 <__epilogue_restores__+0x18>
+     3e0:	0c 94 a6 19 	jmp	0x334c	; 0x334c <__epilogue_restores__+0x18>
 
 000003e4 <__addsf3>:
      3e4:	a0 e2       	ldi	r26, 0x20	; 32
      3e6:	b0 e0       	ldi	r27, 0x00	; 0
      3e8:	e8 ef       	ldi	r30, 0xF8	; 248
      3ea:	f1 e0       	ldi	r31, 0x01	; 1
-     3ec:	0c 94 20 17 	jmp	0x2e40	; 0x2e40 <__prologue_saves__+0x18>
+     3ec:	0c 94 8a 19 	jmp	0x3314	; 0x3314 <__prologue_saves__+0x18>
      3f0:	69 83       	std	Y+1, r22	; 0x01
      3f2:	7a 83       	std	Y+2, r23	; 0x02
      3f4:	8b 83       	std	Y+3, r24	; 0x03
@@ -559,14 +559,14 @@ Disassembly of section .text:
      432:	0e 94 71 05 	call	0xae2	; 0xae2 <__pack_f>
      436:	a0 96       	adiw	r28, 0x20	; 32
      438:	e6 e0       	ldi	r30, 0x06	; 6
-     43a:	0c 94 3c 17 	jmp	0x2e78	; 0x2e78 <__epilogue_restores__+0x18>
+     43a:	0c 94 a6 19 	jmp	0x334c	; 0x334c <__epilogue_restores__+0x18>
 
 0000043e <__mulsf3>:
      43e:	a0 e2       	ldi	r26, 0x20	; 32
      440:	b0 e0       	ldi	r27, 0x00	; 0
      442:	e5 e2       	ldi	r30, 0x25	; 37
      444:	f2 e0       	ldi	r31, 0x02	; 2
-     446:	0c 94 14 17 	jmp	0x2e28	; 0x2e28 <__prologue_saves__>
+     446:	0c 94 7e 19 	jmp	0x32fc	; 0x32fc <__prologue_saves__>
      44a:	69 83       	std	Y+1, r22	; 0x01
      44c:	7a 83       	std	Y+2, r23	; 0x02
      44e:	8b 83       	std	Y+3, r24	; 0x03
@@ -602,7 +602,7 @@ Disassembly of section .text:
      48e:	29 f4       	brne	.+10     	; 0x49a <__mulsf3+0x5c>
      490:	92 30       	cpi	r25, 0x02	; 2
      492:	81 f4       	brne	.+32     	; 0x4b4 <__mulsf3+0x76>
-     494:	86 e6       	ldi	r24, 0x66	; 102
+     494:	84 e9       	ldi	r24, 0x94	; 148
      496:	90 e0       	ldi	r25, 0x00	; 0
      498:	c6 c0       	rjmp	.+396    	; 0x626 <__mulsf3+0x1e8>
      49a:	92 30       	cpi	r25, 0x02	; 2
@@ -806,14 +806,14 @@ Disassembly of section .text:
      626:	0e 94 71 05 	call	0xae2	; 0xae2 <__pack_f>
      62a:	a0 96       	adiw	r28, 0x20	; 32
      62c:	e2 e1       	ldi	r30, 0x12	; 18
-     62e:	0c 94 30 17 	jmp	0x2e60	; 0x2e60 <__epilogue_restores__>
+     62e:	0c 94 9a 19 	jmp	0x3334	; 0x3334 <__epilogue_restores__>
 
 00000632 <__divsf3>:
      632:	a8 e1       	ldi	r26, 0x18	; 24
      634:	b0 e0       	ldi	r27, 0x00	; 0
      636:	ef e1       	ldi	r30, 0x1F	; 31
      638:	f3 e0       	ldi	r31, 0x03	; 3
-     63a:	0c 94 1c 17 	jmp	0x2e38	; 0x2e38 <__prologue_saves__+0x10>
+     63a:	0c 94 86 19 	jmp	0x330c	; 0x330c <__prologue_saves__+0x10>
      63e:	69 83       	std	Y+1, r22	; 0x01
      640:	7a 83       	std	Y+2, r23	; 0x02
      642:	8b 83       	std	Y+3, r24	; 0x03
@@ -858,7 +858,7 @@ Disassembly of section .text:
      694:	23 17       	cp	r18, r19
      696:	09 f0       	breq	.+2      	; 0x69a <__divsf3+0x68>
      698:	6e c0       	rjmp	.+220    	; 0x776 <__divsf3+0x144>
-     69a:	66 e6       	ldi	r22, 0x66	; 102
+     69a:	64 e9       	ldi	r22, 0x94	; 148
      69c:	70 e0       	ldi	r23, 0x00	; 0
      69e:	6e c0       	rjmp	.+220    	; 0x77c <__divsf3+0x14a>
      6a0:	34 30       	cpi	r19, 0x04	; 4
@@ -975,14 +975,14 @@ Disassembly of section .text:
      77e:	0e 94 71 05 	call	0xae2	; 0xae2 <__pack_f>
      782:	68 96       	adiw	r28, 0x18	; 24
      784:	ea e0       	ldi	r30, 0x0A	; 10
-     786:	0c 94 38 17 	jmp	0x2e70	; 0x2e70 <__epilogue_restores__+0x10>
+     786:	0c 94 a2 19 	jmp	0x3344	; 0x3344 <__epilogue_restores__+0x10>
 
 0000078a <__gtsf2>:
      78a:	a8 e1       	ldi	r26, 0x18	; 24
      78c:	b0 e0       	ldi	r27, 0x00	; 0
      78e:	eb ec       	ldi	r30, 0xCB	; 203
      790:	f3 e0       	ldi	r31, 0x03	; 3
-     792:	0c 94 20 17 	jmp	0x2e40	; 0x2e40 <__prologue_saves__+0x18>
+     792:	0c 94 8a 19 	jmp	0x3314	; 0x3314 <__prologue_saves__+0x18>
      796:	69 83       	std	Y+1, r22	; 0x01
      798:	7a 83       	std	Y+2, r23	; 0x02
      79a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1020,14 +1020,14 @@ Disassembly of section .text:
      7e0:	8f ef       	ldi	r24, 0xFF	; 255
      7e2:	68 96       	adiw	r28, 0x18	; 24
      7e4:	e6 e0       	ldi	r30, 0x06	; 6
-     7e6:	0c 94 3c 17 	jmp	0x2e78	; 0x2e78 <__epilogue_restores__+0x18>
+     7e6:	0c 94 a6 19 	jmp	0x334c	; 0x334c <__epilogue_restores__+0x18>
 
 000007ea <__gesf2>:
      7ea:	a8 e1       	ldi	r26, 0x18	; 24
      7ec:	b0 e0       	ldi	r27, 0x00	; 0
      7ee:	eb ef       	ldi	r30, 0xFB	; 251
      7f0:	f3 e0       	ldi	r31, 0x03	; 3
-     7f2:	0c 94 20 17 	jmp	0x2e40	; 0x2e40 <__prologue_saves__+0x18>
+     7f2:	0c 94 8a 19 	jmp	0x3314	; 0x3314 <__prologue_saves__+0x18>
      7f6:	69 83       	std	Y+1, r22	; 0x01
      7f8:	7a 83       	std	Y+2, r23	; 0x02
      7fa:	8b 83       	std	Y+3, r24	; 0x03
@@ -1065,14 +1065,14 @@ Disassembly of section .text:
      840:	8f ef       	ldi	r24, 0xFF	; 255
      842:	68 96       	adiw	r28, 0x18	; 24
      844:	e6 e0       	ldi	r30, 0x06	; 6
-     846:	0c 94 3c 17 	jmp	0x2e78	; 0x2e78 <__epilogue_restores__+0x18>
+     846:	0c 94 a6 19 	jmp	0x334c	; 0x334c <__epilogue_restores__+0x18>
 
 0000084a <__ltsf2>:
      84a:	a8 e1       	ldi	r26, 0x18	; 24
      84c:	b0 e0       	ldi	r27, 0x00	; 0
      84e:	eb e2       	ldi	r30, 0x2B	; 43
      850:	f4 e0       	ldi	r31, 0x04	; 4
-     852:	0c 94 20 17 	jmp	0x2e40	; 0x2e40 <__prologue_saves__+0x18>
+     852:	0c 94 8a 19 	jmp	0x3314	; 0x3314 <__prologue_saves__+0x18>
      856:	69 83       	std	Y+1, r22	; 0x01
      858:	7a 83       	std	Y+2, r23	; 0x02
      85a:	8b 83       	std	Y+3, r24	; 0x03
@@ -1110,14 +1110,14 @@ Disassembly of section .text:
      8a0:	81 e0       	ldi	r24, 0x01	; 1
      8a2:	68 96       	adiw	r28, 0x18	; 24
      8a4:	e6 e0       	ldi	r30, 0x06	; 6
-     8a6:	0c 94 3c 17 	jmp	0x2e78	; 0x2e78 <__epilogue_restores__+0x18>
+     8a6:	0c 94 a6 19 	jmp	0x334c	; 0x334c <__epilogue_restores__+0x18>
 
 000008aa <__fixsfsi>:
      8aa:	ac e0       	ldi	r26, 0x0C	; 12
      8ac:	b0 e0       	ldi	r27, 0x00	; 0
      8ae:	eb e5       	ldi	r30, 0x5B	; 91
      8b0:	f4 e0       	ldi	r31, 0x04	; 4
-     8b2:	0c 94 24 17 	jmp	0x2e48	; 0x2e48 <__prologue_saves__+0x20>
+     8b2:	0c 94 8e 19 	jmp	0x331c	; 0x331c <__prologue_saves__+0x20>
      8b6:	69 83       	std	Y+1, r22	; 0x01
      8b8:	7a 83       	std	Y+2, r23	; 0x02
      8ba:	8b 83       	std	Y+3, r24	; 0x03
@@ -1193,14 +1193,14 @@ Disassembly of section .text:
      948:	ca 01       	movw	r24, r20
      94a:	2c 96       	adiw	r28, 0x0c	; 12
      94c:	e2 e0       	ldi	r30, 0x02	; 2
-     94e:	0c 94 40 17 	jmp	0x2e80	; 0x2e80 <__epilogue_restores__+0x20>
+     94e:	0c 94 aa 19 	jmp	0x3354	; 0x3354 <__epilogue_restores__+0x20>
 
 00000952 <__floatunsisf>:
      952:	a8 e0       	ldi	r26, 0x08	; 8
      954:	b0 e0       	ldi	r27, 0x00	; 0
      956:	ef ea       	ldi	r30, 0xAF	; 175
      958:	f4 e0       	ldi	r31, 0x04	; 4
-     95a:	0c 94 1c 17 	jmp	0x2e38	; 0x2e38 <__prologue_saves__+0x10>
+     95a:	0c 94 86 19 	jmp	0x330c	; 0x330c <__prologue_saves__+0x10>
      95e:	7b 01       	movw	r14, r22
      960:	8c 01       	movw	r16, r24
      962:	61 15       	cp	r22, r1
@@ -1312,7 +1312,7 @@ Disassembly of section .text:
      a38:	0e 94 71 05 	call	0xae2	; 0xae2 <__pack_f>
      a3c:	28 96       	adiw	r28, 0x08	; 8
      a3e:	ea e0       	ldi	r30, 0x0A	; 10
-     a40:	0c 94 38 17 	jmp	0x2e70	; 0x2e70 <__epilogue_restores__+0x10>
+     a40:	0c 94 a2 19 	jmp	0x3344	; 0x3344 <__epilogue_restores__+0x10>
 
 00000a44 <__clzsi2>:
      a44:	ef 92       	push	r14
@@ -1381,7 +1381,7 @@ Disassembly of section .text:
      ac2:	8a 95       	dec	r24
      ac4:	d2 f7       	brpl	.-12     	; 0xaba <__clzsi2+0x76>
      ac6:	f7 01       	movw	r30, r14
-     ac8:	e2 59       	subi	r30, 0x92	; 146
+     ac8:	e4 56       	subi	r30, 0x64	; 100
      aca:	ff 4f       	sbci	r31, 0xFF	; 255
      acc:	80 81       	ld	r24, Z
      ace:	28 1b       	sub	r18, r24
@@ -2396,7 +2396,7 @@ void TIMER2_VoidSetPWMCompareMatch(u8 copy_u8Val )
     10e8:	50 e0       	ldi	r21, 0x00	; 0
     10ea:	bc 01       	movw	r22, r24
     10ec:	cd 01       	movw	r24, r26
-    10ee:	0e 94 d3 16 	call	0x2da6	; 0x2da6 <__mulsi3>
+    10ee:	0e 94 3d 19 	call	0x327a	; 0x327a <__mulsi3>
     10f2:	dc 01       	movw	r26, r24
     10f4:	cb 01       	movw	r24, r22
     10f6:	24 e6       	ldi	r18, 0x64	; 100
@@ -2405,7 +2405,7 @@ void TIMER2_VoidSetPWMCompareMatch(u8 copy_u8Val )
     10fc:	50 e0       	ldi	r21, 0x00	; 0
     10fe:	bc 01       	movw	r22, r24
     1100:	cd 01       	movw	r24, r26
-    1102:	0e 94 f2 16 	call	0x2de4	; 0x2de4 <__udivmodsi4>
+    1102:	0e 94 5c 19 	call	0x32b8	; 0x32b8 <__udivmodsi4>
     1106:	da 01       	movw	r26, r20
     1108:	c9 01       	movw	r24, r18
     110a:	f8 01       	movw	r30, r16
@@ -2668,8 +2668,8 @@ void TIMER0_voidSetCallBack(  void (*ptr_timer)(void) )
 		TIMER0_callBack=ptr_timer ;
     1268:	89 81       	ldd	r24, Y+1	; 0x01
     126a:	9a 81       	ldd	r25, Y+2	; 0x02
-    126c:	90 93 97 01 	sts	0x0197, r25
-    1270:	80 93 96 01 	sts	0x0196, r24
+    126c:	90 93 c5 01 	sts	0x01C5, r25
+    1270:	80 93 c4 01 	sts	0x01C4, r24
 	}
 }
     1274:	0f 90       	pop	r0
@@ -2708,8 +2708,8 @@ void __vector_11 ()
     12a6:	de b7       	in	r29, 0x3e	; 62
 
 	TIMER0_callBack();
-    12a8:	e0 91 96 01 	lds	r30, 0x0196
-    12ac:	f0 91 97 01 	lds	r31, 0x0197
+    12a8:	e0 91 c4 01 	lds	r30, 0x01C4
+    12ac:	f0 91 c5 01 	lds	r31, 0x01C5
     12b0:	09 95       	icall
 
 }
@@ -3306,24 +3306,24 @@ void EXTINT_voidSetCallBack (  void (*ptr_ext)(void) ,u8 copy_u8ExtNum )
 			ptr_ArrCallBack[ 0 ]= ptr_ext;
     15a4:	89 81       	ldd	r24, Y+1	; 0x01
     15a6:	9a 81       	ldd	r25, Y+2	; 0x02
-    15a8:	90 93 99 01 	sts	0x0199, r25
-    15ac:	80 93 98 01 	sts	0x0198, r24
+    15a8:	90 93 c7 01 	sts	0x01C7, r25
+    15ac:	80 93 c6 01 	sts	0x01C6, r24
     15b0:	0d c0       	rjmp	.+26     	; 0x15cc <EXTINT_voidSetCallBack+0x6a>
 			break;
 		case EXT1_ID:
 			ptr_ArrCallBack[ 1 ]= ptr_ext;
     15b2:	89 81       	ldd	r24, Y+1	; 0x01
     15b4:	9a 81       	ldd	r25, Y+2	; 0x02
-    15b6:	90 93 9b 01 	sts	0x019B, r25
-    15ba:	80 93 9a 01 	sts	0x019A, r24
+    15b6:	90 93 c9 01 	sts	0x01C9, r25
+    15ba:	80 93 c8 01 	sts	0x01C8, r24
     15be:	06 c0       	rjmp	.+12     	; 0x15cc <EXTINT_voidSetCallBack+0x6a>
 			break;
 		case EXT2_ID:
 			ptr_ArrCallBack[ 2 ]= ptr_ext;
     15c0:	89 81       	ldd	r24, Y+1	; 0x01
     15c2:	9a 81       	ldd	r25, Y+2	; 0x02
-    15c4:	90 93 9d 01 	sts	0x019D, r25
-    15c8:	80 93 9c 01 	sts	0x019C, r24
+    15c4:	90 93 cb 01 	sts	0x01CB, r25
+    15c8:	80 93 ca 01 	sts	0x01CA, r24
 		}
 
 
@@ -3369,14 +3369,14 @@ void __vector_1 ()
     1604:	de b7       	in	r29, 0x3e	; 62
 
 	if(ptr_ArrCallBack[0] !=NULL)
-    1606:	80 91 98 01 	lds	r24, 0x0198
-    160a:	90 91 99 01 	lds	r25, 0x0199
+    1606:	80 91 c6 01 	lds	r24, 0x01C6
+    160a:	90 91 c7 01 	lds	r25, 0x01C7
     160e:	00 97       	sbiw	r24, 0x00	; 0
     1610:	29 f0       	breq	.+10     	; 0x161c <__vector_1+0x40>
 	{
 		ptr_ArrCallBack[0]();
-    1612:	e0 91 98 01 	lds	r30, 0x0198
-    1616:	f0 91 99 01 	lds	r31, 0x0199
+    1612:	e0 91 c6 01 	lds	r30, 0x01C6
+    1616:	f0 91 c7 01 	lds	r31, 0x01C7
     161a:	09 95       	icall
 	}
 
@@ -3430,14 +3430,14 @@ void __vector_2 ()
     1668:	cd b7       	in	r28, 0x3d	; 61
     166a:	de b7       	in	r29, 0x3e	; 62
 	if(ptr_ArrCallBack[1] !=NULL)
-    166c:	80 91 9a 01 	lds	r24, 0x019A
-    1670:	90 91 9b 01 	lds	r25, 0x019B
+    166c:	80 91 c8 01 	lds	r24, 0x01C8
+    1670:	90 91 c9 01 	lds	r25, 0x01C9
     1674:	00 97       	sbiw	r24, 0x00	; 0
     1676:	29 f0       	breq	.+10     	; 0x1682 <__vector_2+0x40>
 		{
 		ptr_ArrCallBack[1]();
-    1678:	e0 91 9a 01 	lds	r30, 0x019A
-    167c:	f0 91 9b 01 	lds	r31, 0x019B
+    1678:	e0 91 c8 01 	lds	r30, 0x01C8
+    167c:	f0 91 c9 01 	lds	r31, 0x01C9
     1680:	09 95       	icall
 		}
 
@@ -3490,14 +3490,14 @@ void __vector_3 ()
     16ce:	cd b7       	in	r28, 0x3d	; 61
     16d0:	de b7       	in	r29, 0x3e	; 62
 	if(ptr_ArrCallBack[2] !=NULL)
-    16d2:	80 91 9c 01 	lds	r24, 0x019C
-    16d6:	90 91 9d 01 	lds	r25, 0x019D
+    16d2:	80 91 ca 01 	lds	r24, 0x01CA
+    16d6:	90 91 cb 01 	lds	r25, 0x01CB
     16da:	00 97       	sbiw	r24, 0x00	; 0
     16dc:	29 f0       	breq	.+10     	; 0x16e8 <__vector_3+0x40>
 		{
 		ptr_ArrCallBack[2]();
-    16de:	e0 91 9c 01 	lds	r30, 0x019C
-    16e2:	f0 91 9d 01 	lds	r31, 0x019D
+    16de:	e0 91 ca 01 	lds	r30, 0x01CA
+    16e2:	f0 91 cb 01 	lds	r31, 0x01CB
     16e6:	09 95       	icall
 		}
 
@@ -4589,17 +4589,17 @@ void Timer0OvFunc(){
     1e22:	cd b7       	in	r28, 0x3d	; 61
     1e24:	de b7       	in	r29, 0x3e	; 62
 	OvCounter++;
-    1e26:	80 91 a6 01 	lds	r24, 0x01A6
-    1e2a:	90 91 a7 01 	lds	r25, 0x01A7
-    1e2e:	a0 91 a8 01 	lds	r26, 0x01A8
-    1e32:	b0 91 a9 01 	lds	r27, 0x01A9
+    1e26:	80 91 d4 01 	lds	r24, 0x01D4
+    1e2a:	90 91 d5 01 	lds	r25, 0x01D5
+    1e2e:	a0 91 d6 01 	lds	r26, 0x01D6
+    1e32:	b0 91 d7 01 	lds	r27, 0x01D7
     1e36:	01 96       	adiw	r24, 0x01	; 1
     1e38:	a1 1d       	adc	r26, r1
     1e3a:	b1 1d       	adc	r27, r1
-    1e3c:	80 93 a6 01 	sts	0x01A6, r24
-    1e40:	90 93 a7 01 	sts	0x01A7, r25
-    1e44:	a0 93 a8 01 	sts	0x01A8, r26
-    1e48:	b0 93 a9 01 	sts	0x01A9, r27
+    1e3c:	80 93 d4 01 	sts	0x01D4, r24
+    1e40:	90 93 d5 01 	sts	0x01D5, r25
+    1e44:	a0 93 d6 01 	sts	0x01D6, r26
+    1e48:	b0 93 d7 01 	sts	0x01D7, r27
 }
     1e4c:	cf 91       	pop	r28
     1e4e:	df 91       	pop	r29
@@ -4614,7 +4614,7 @@ void UltrasonicFunc(){
     1e58:	de b7       	in	r29, 0x3e	; 62
 	//rising
 	if (edge==RISING_EDGE){
-    1e5a:	80 91 ae 01 	lds	r24, 0x01AE
+    1e5a:	80 91 dc 01 	lds	r24, 0x01DC
     1e5e:	81 30       	cpi	r24, 0x01	; 1
     1e60:	a1 f4       	brne	.+40     	; 0x1e8a <UltrasonicFunc+0x38>
 
@@ -4626,10 +4626,10 @@ void UltrasonicFunc(){
     1e68:	0e 94 91 09 	call	0x1322	; 0x1322 <TIMER0_VoidStart>
 
 		OvCounter = 0;
-    1e6c:	10 92 a6 01 	sts	0x01A6, r1
-    1e70:	10 92 a7 01 	sts	0x01A7, r1
-    1e74:	10 92 a8 01 	sts	0x01A8, r1
-    1e78:	10 92 a9 01 	sts	0x01A9, r1
+    1e6c:	10 92 d4 01 	sts	0x01D4, r1
+    1e70:	10 92 d5 01 	sts	0x01D5, r1
+    1e74:	10 92 d6 01 	sts	0x01D6, r1
+    1e78:	10 92 d7 01 	sts	0x01D7, r1
 
 		EXTINT_voidInit(EXT0_ID,FALLING_EDGE);
     1e7c:	80 e0       	ldi	r24, 0x00	; 0
@@ -4637,13 +4637,13 @@ void UltrasonicFunc(){
     1e80:	0e 94 0c 0a 	call	0x1418	; 0x1418 <EXTINT_voidInit>
 
 		edge = FALLING_EDGE;
-    1e84:	10 92 ae 01 	sts	0x01AE, r1
+    1e84:	10 92 dc 01 	sts	0x01DC, r1
     1e88:	70 c0       	rjmp	.+224    	; 0x1f6a <UltrasonicFunc+0x118>
 
 	}
 	//falling
 	else if (edge==FALLING_EDGE){
-    1e8a:	80 91 ae 01 	lds	r24, 0x01AE
+    1e8a:	80 91 dc 01 	lds	r24, 0x01DC
     1e8e:	88 23       	and	r24, r24
     1e90:	09 f0       	breq	.+2      	; 0x1e94 <UltrasonicFunc+0x42>
     1e92:	6b c0       	rjmp	.+214    	; 0x1f6a <UltrasonicFunc+0x118>
@@ -4656,24 +4656,24 @@ void UltrasonicFunc(){
     1e9e:	90 e0       	ldi	r25, 0x00	; 0
     1ea0:	a0 e0       	ldi	r26, 0x00	; 0
     1ea2:	b0 e0       	ldi	r27, 0x00	; 0
-    1ea4:	80 93 aa 01 	sts	0x01AA, r24
-    1ea8:	90 93 ab 01 	sts	0x01AB, r25
-    1eac:	a0 93 ac 01 	sts	0x01AC, r26
-    1eb0:	b0 93 ad 01 	sts	0x01AD, r27
+    1ea4:	80 93 d8 01 	sts	0x01D8, r24
+    1ea8:	90 93 d9 01 	sts	0x01D9, r25
+    1eac:	a0 93 da 01 	sts	0x01DA, r26
+    1eb0:	b0 93 db 01 	sts	0x01DB, r27
 
 		TONTime = Ttick*(TimeOn+(256*OvCounter));
-    1eb4:	80 91 a6 01 	lds	r24, 0x01A6
-    1eb8:	90 91 a7 01 	lds	r25, 0x01A7
-    1ebc:	a0 91 a8 01 	lds	r26, 0x01A8
-    1ec0:	b0 91 a9 01 	lds	r27, 0x01A9
+    1eb4:	80 91 d4 01 	lds	r24, 0x01D4
+    1eb8:	90 91 d5 01 	lds	r25, 0x01D5
+    1ebc:	a0 91 d6 01 	lds	r26, 0x01D6
+    1ec0:	b0 91 d7 01 	lds	r27, 0x01D7
     1ec4:	22 27       	eor	r18, r18
     1ec6:	38 2f       	mov	r19, r24
     1ec8:	49 2f       	mov	r20, r25
     1eca:	5a 2f       	mov	r21, r26
-    1ecc:	80 91 aa 01 	lds	r24, 0x01AA
-    1ed0:	90 91 ab 01 	lds	r25, 0x01AB
-    1ed4:	a0 91 ac 01 	lds	r26, 0x01AC
-    1ed8:	b0 91 ad 01 	lds	r27, 0x01AD
+    1ecc:	80 91 d8 01 	lds	r24, 0x01D8
+    1ed0:	90 91 d9 01 	lds	r25, 0x01D9
+    1ed4:	a0 91 da 01 	lds	r26, 0x01DA
+    1ed8:	b0 91 db 01 	lds	r27, 0x01DB
     1edc:	82 0f       	add	r24, r18
     1ede:	93 1f       	adc	r25, r19
     1ee0:	a4 1f       	adc	r26, r20
@@ -4683,24 +4683,24 @@ void UltrasonicFunc(){
     1ee8:	0e 94 a9 04 	call	0x952	; 0x952 <__floatunsisf>
     1eec:	dc 01       	movw	r26, r24
     1eee:	cb 01       	movw	r24, r22
-    1ef0:	20 91 6e 01 	lds	r18, 0x016E
-    1ef4:	30 91 6f 01 	lds	r19, 0x016F
-    1ef8:	40 91 70 01 	lds	r20, 0x0170
-    1efc:	50 91 71 01 	lds	r21, 0x0171
+    1ef0:	20 91 9c 01 	lds	r18, 0x019C
+    1ef4:	30 91 9d 01 	lds	r19, 0x019D
+    1ef8:	40 91 9e 01 	lds	r20, 0x019E
+    1efc:	50 91 9f 01 	lds	r21, 0x019F
     1f00:	bc 01       	movw	r22, r24
     1f02:	cd 01       	movw	r24, r26
     1f04:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
     1f08:	dc 01       	movw	r26, r24
     1f0a:	cb 01       	movw	r24, r22
-    1f0c:	80 93 9e 01 	sts	0x019E, r24
-    1f10:	90 93 9f 01 	sts	0x019F, r25
-    1f14:	a0 93 a0 01 	sts	0x01A0, r26
-    1f18:	b0 93 a1 01 	sts	0x01A1, r27
+    1f0c:	80 93 cc 01 	sts	0x01CC, r24
+    1f10:	90 93 cd 01 	sts	0x01CD, r25
+    1f14:	a0 93 ce 01 	sts	0x01CE, r26
+    1f18:	b0 93 cf 01 	sts	0x01CF, r27
 		dis = 17 * TONTime;
-    1f1c:	80 91 9e 01 	lds	r24, 0x019E
-    1f20:	90 91 9f 01 	lds	r25, 0x019F
-    1f24:	a0 91 a0 01 	lds	r26, 0x01A0
-    1f28:	b0 91 a1 01 	lds	r27, 0x01A1
+    1f1c:	80 91 cc 01 	lds	r24, 0x01CC
+    1f20:	90 91 cd 01 	lds	r25, 0x01CD
+    1f24:	a0 91 ce 01 	lds	r26, 0x01CE
+    1f28:	b0 91 cf 01 	lds	r27, 0x01CF
     1f2c:	bc 01       	movw	r22, r24
     1f2e:	cd 01       	movw	r24, r26
     1f30:	20 e0       	ldi	r18, 0x00	; 0
@@ -4715,10 +4715,10 @@ void UltrasonicFunc(){
     1f44:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
     1f48:	dc 01       	movw	r26, r24
     1f4a:	cb 01       	movw	r24, r22
-    1f4c:	80 93 a2 01 	sts	0x01A2, r24
-    1f50:	90 93 a3 01 	sts	0x01A3, r25
-    1f54:	a0 93 a4 01 	sts	0x01A4, r26
-    1f58:	b0 93 a5 01 	sts	0x01A5, r27
+    1f4c:	80 93 d0 01 	sts	0x01D0, r24
+    1f50:	90 93 d1 01 	sts	0x01D1, r25
+    1f54:	a0 93 d2 01 	sts	0x01D2, r26
+    1f58:	b0 93 d3 01 	sts	0x01D3, r27
 
 		EXTINT_voidInit(EXT0_ID,RISING_EDGE);
     1f5c:	80 e0       	ldi	r24, 0x00	; 0
@@ -4727,7 +4727,7 @@ void UltrasonicFunc(){
 
 		edge = RISING_EDGE;
     1f64:	81 e0       	ldi	r24, 0x01	; 1
-    1f66:	80 93 ae 01 	sts	0x01AE, r24
+    1f66:	80 93 dc 01 	sts	0x01DC, r24
 	}
 }
     1f6a:	cf 91       	pop	r28
@@ -5063,10 +5063,10 @@ u32 ULTRASONIC_VoidVal(){
     216c:	de b7       	in	r29, 0x3e	; 62
 
 	return dis;
-    216e:	80 91 a2 01 	lds	r24, 0x01A2
-    2172:	90 91 a3 01 	lds	r25, 0x01A3
-    2176:	a0 91 a4 01 	lds	r26, 0x01A4
-    217a:	b0 91 a5 01 	lds	r27, 0x01A5
+    216e:	80 91 d0 01 	lds	r24, 0x01D0
+    2172:	90 91 d1 01 	lds	r25, 0x01D1
+    2176:	a0 91 d2 01 	lds	r26, 0x01D2
+    217a:	b0 91 d3 01 	lds	r27, 0x01D3
 }
     217e:	bc 01       	movw	r22, r24
     2180:	cd 01       	movw	r24, r26
@@ -6435,7 +6435,7 @@ void LCD_voidWriteNumber( u32 Copy_u8num )
     2986:	50 e0       	ldi	r21, 0x00	; 0
     2988:	bc 01       	movw	r22, r24
     298a:	cd 01       	movw	r24, r26
-    298c:	0e 94 f2 16 	call	0x2de4	; 0x2de4 <__udivmodsi4>
+    298c:	0e 94 5c 19 	call	0x32b8	; 0x32b8 <__udivmodsi4>
     2990:	dc 01       	movw	r26, r24
     2992:	cb 01       	movw	r24, r22
     2994:	28 2f       	mov	r18, r24
@@ -6457,7 +6457,7 @@ void LCD_voidWriteNumber( u32 Copy_u8num )
     29b2:	50 e0       	ldi	r21, 0x00	; 0
     29b4:	bc 01       	movw	r22, r24
     29b6:	cd 01       	movw	r24, r26
-    29b8:	0e 94 f2 16 	call	0x2de4	; 0x2de4 <__udivmodsi4>
+    29b8:	0e 94 5c 19 	call	0x32b8	; 0x32b8 <__udivmodsi4>
     29bc:	da 01       	movw	r26, r20
     29be:	c9 01       	movw	r24, r18
     29c0:	8a 83       	std	Y+2, r24	; 0x02
@@ -6663,7 +6663,7 @@ void LCD_MTR_VoidCustomCharacters(){
     2abe:	01 96       	adiw	r24, 0x01	; 1
     2ac0:	9a a3       	std	Y+34, r25	; 0x22
     2ac2:	89 a3       	std	Y+33, r24	; 0x21
-    2ac4:	ed e8       	ldi	r30, 0x8D	; 141
+    2ac4:	eb eb       	ldi	r30, 0xBB	; 187
     2ac6:	f1 e0       	ldi	r31, 0x01	; 1
     2ac8:	fc a3       	std	Y+36, r31	; 0x24
     2aca:	eb a3       	std	Y+35, r30	; 0x23
@@ -6701,7 +6701,7 @@ void LCD_MTR_VoidCustomCharacters(){
     2afe:	09 96       	adiw	r24, 0x09	; 9
     2b00:	9f a3       	std	Y+39, r25	; 0x27
     2b02:	8e a3       	std	Y+38, r24	; 0x26
-    2b04:	e5 e8       	ldi	r30, 0x85	; 133
+    2b04:	e3 eb       	ldi	r30, 0xB3	; 179
     2b06:	f1 e0       	ldi	r31, 0x01	; 1
     2b08:	f9 a7       	std	Y+41, r31	; 0x29
     2b0a:	e8 a7       	std	Y+40, r30	; 0x28
@@ -6739,7 +6739,7 @@ void LCD_MTR_VoidCustomCharacters(){
     2b3e:	41 96       	adiw	r24, 0x11	; 17
     2b40:	9c a7       	std	Y+44, r25	; 0x2c
     2b42:	8b a7       	std	Y+43, r24	; 0x2b
-    2b44:	ed e7       	ldi	r30, 0x7D	; 125
+    2b44:	eb ea       	ldi	r30, 0xAB	; 171
     2b46:	f1 e0       	ldi	r31, 0x01	; 1
     2b48:	fe a7       	std	Y+46, r31	; 0x2e
     2b4a:	ed a7       	std	Y+45, r30	; 0x2d
@@ -6777,7 +6777,7 @@ void LCD_MTR_VoidCustomCharacters(){
     2b7e:	49 96       	adiw	r24, 0x19	; 25
     2b80:	99 ab       	std	Y+49, r25	; 0x31
     2b82:	88 ab       	std	Y+48, r24	; 0x30
-    2b84:	e5 e7       	ldi	r30, 0x75	; 117
+    2b84:	e3 ea       	ldi	r30, 0xA3	; 163
     2b86:	f1 e0       	ldi	r31, 0x01	; 1
     2b88:	fb ab       	std	Y+51, r31	; 0x33
     2b8a:	ea ab       	std	Y+50, r30	; 0x32
@@ -6808,28 +6808,28 @@ void LCD_MTR_VoidCustomCharacters(){
 
 	//Send the custom characters to the CGRAM
 	LCD_voidWriteSpecialCharToCGRAM(LCD_MTR_Forward,LCD_MTR_Forward_ADDRESS);
-    2bbc:	20 91 af 01 	lds	r18, 0x01AF
+    2bbc:	20 91 dd 01 	lds	r18, 0x01DD
     2bc0:	ce 01       	movw	r24, r28
     2bc2:	01 96       	adiw	r24, 0x01	; 1
     2bc4:	62 2f       	mov	r22, r18
     2bc6:	0e 94 0f 15 	call	0x2a1e	; 0x2a1e <LCD_voidWriteSpecialCharToCGRAM>
 
 	LCD_voidWriteSpecialCharToCGRAM(LCD_MTR_Reverse,LCD_MTR_Reverce_ADDRESS);
-    2bca:	20 91 72 01 	lds	r18, 0x0172
+    2bca:	20 91 a0 01 	lds	r18, 0x01A0
     2bce:	ce 01       	movw	r24, r28
     2bd0:	09 96       	adiw	r24, 0x09	; 9
     2bd2:	62 2f       	mov	r22, r18
     2bd4:	0e 94 0f 15 	call	0x2a1e	; 0x2a1e <LCD_voidWriteSpecialCharToCGRAM>
 
 	LCD_voidWriteSpecialCharToCGRAM(LCD_MTR_Right,LCD_MTR_Right_ADDRESS);
-    2bd8:	20 91 73 01 	lds	r18, 0x0173
+    2bd8:	20 91 a1 01 	lds	r18, 0x01A1
     2bdc:	ce 01       	movw	r24, r28
     2bde:	41 96       	adiw	r24, 0x11	; 17
     2be0:	62 2f       	mov	r22, r18
     2be2:	0e 94 0f 15 	call	0x2a1e	; 0x2a1e <LCD_voidWriteSpecialCharToCGRAM>
 
 	LCD_voidWriteSpecialCharToCGRAM(LCD_MTR_Lift,LCD_MTR_Lift_ADDRESS);
-    2be6:	20 91 74 01 	lds	r18, 0x0174
+    2be6:	20 91 a2 01 	lds	r18, 0x01A2
     2bea:	ce 01       	movw	r24, r28
     2bec:	49 96       	adiw	r24, 0x19	; 25
     2bee:	62 2f       	mov	r22, r18
@@ -6847,411 +6847,1188 @@ void LCD_MTR_VoidCustomCharacters(){
     2c02:	df 91       	pop	r29
     2c04:	08 95       	ret
 
-00002c06 <main>:
+00002c06 <Ultrasonic_Servo_BoolCheckRightSide>:
 
-int main(){
+/*--------------------------------------------------------------------------------------------*/
+u32 UltrasonicRead = 0;
+
+/*--------------------------------------------------------------------------------------------*/
+BOOL Ultrasonic_Servo_BoolCheckRightSide(){
     2c06:	df 93       	push	r29
     2c08:	cf 93       	push	r28
     2c0a:	cd b7       	in	r28, 0x3d	; 61
     2c0c:	de b7       	in	r29, 0x3e	; 62
-    2c0e:	62 97       	sbiw	r28, 0x12	; 18
+    2c0e:	2f 97       	sbiw	r28, 0x0f	; 15
     2c10:	0f b6       	in	r0, 0x3f	; 63
     2c12:	f8 94       	cli
     2c14:	de bf       	out	0x3e, r29	; 62
     2c16:	0f be       	out	0x3f, r0	; 63
     2c18:	cd bf       	out	0x3d, r28	; 61
+	//Move the SERVO to the right
+	Servo_voidSetAngle(90);
+    2c1a:	8a e5       	ldi	r24, 0x5A	; 90
+    2c1c:	0e 94 d5 10 	call	0x21aa	; 0x21aa <Servo_voidSetAngle>
 
-	//LCD
-	LCD_voidInit();
-    2c1a:	0e 94 f5 11 	call	0x23ea	; 0x23ea <LCD_voidInit>
-
-	LCD_MTR_VoidCustomCharacters();
-    2c1e:	0e 94 54 15 	call	0x2aa8	; 0x2aa8 <LCD_MTR_VoidCustomCharacters>
-
-	//Motor
-
-	MTR_voidInit();
-    2c22:	0e 94 0d 11 	call	0x221a	; 0x221a <MTR_voidInit>
-
-	//ULTRASONIC
-	u32 UltrasonicRead = 0;
-    2c26:	1f 86       	std	Y+15, r1	; 0x0f
-    2c28:	18 8a       	std	Y+16, r1	; 0x10
-    2c2a:	19 8a       	std	Y+17, r1	; 0x11
-    2c2c:	1a 8a       	std	Y+18, r1	; 0x12
-
-	ULTRASONIC_voidInit();
-    2c2e:	0e 94 b8 0f 	call	0x1f70	; 0x1f70 <ULTRASONIC_voidInit>
-
-	while (1){
-		//Start the Ultrasonic read
-		ULTRASONIC_VoidStart();
-    2c32:	0e 94 d8 0f 	call	0x1fb0	; 0x1fb0 <ULTRASONIC_VoidStart>
-
-		UltrasonicRead = 0;
-    2c36:	1f 86       	std	Y+15, r1	; 0x0f
-    2c38:	18 8a       	std	Y+16, r1	; 0x10
-    2c3a:	19 8a       	std	Y+17, r1	; 0x11
-    2c3c:	1a 8a       	std	Y+18, r1	; 0x12
-
-		//Read the distance
-		UltrasonicRead = ULTRASONIC_VoidVal();
-    2c3e:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
-    2c42:	dc 01       	movw	r26, r24
-    2c44:	cb 01       	movw	r24, r22
-    2c46:	8f 87       	std	Y+15, r24	; 0x0f
-    2c48:	98 8b       	std	Y+16, r25	; 0x10
-    2c4a:	a9 8b       	std	Y+17, r26	; 0x11
-    2c4c:	ba 8b       	std	Y+18, r27	; 0x12
-
-		//check if the distance is not 0
-		if(UltrasonicRead!=0){
-    2c4e:	8f 85       	ldd	r24, Y+15	; 0x0f
-    2c50:	98 89       	ldd	r25, Y+16	; 0x10
-    2c52:	a9 89       	ldd	r26, Y+17	; 0x11
-    2c54:	ba 89       	ldd	r27, Y+18	; 0x12
-    2c56:	00 97       	sbiw	r24, 0x00	; 0
-    2c58:	a1 05       	cpc	r26, r1
-    2c5a:	b1 05       	cpc	r27, r1
-    2c5c:	89 f1       	breq	.+98     	; 0x2cc0 <main+0xba>
-			//Clear the display
-			LCD_voidClear();
-    2c5e:	0e 94 7f 14 	call	0x28fe	; 0x28fe <LCD_voidClear>
-
-			//Write the distance to the LCD
-			LCD_voidWriteNumber(UltrasonicRead);
-    2c62:	8f 85       	ldd	r24, Y+15	; 0x0f
-    2c64:	98 89       	ldd	r25, Y+16	; 0x10
-    2c66:	a9 89       	ldd	r26, Y+17	; 0x11
-    2c68:	ba 89       	ldd	r27, Y+18	; 0x12
-    2c6a:	bc 01       	movw	r22, r24
-    2c6c:	cd 01       	movw	r24, r26
-    2c6e:	0e 94 a0 14 	call	0x2940	; 0x2940 <LCD_voidWriteNumber>
-
-			//Do to the second row in the LCD
-			LCD_voidGoToXY(2,0);
-    2c72:	82 e0       	ldi	r24, 0x02	; 2
-    2c74:	60 e0       	ldi	r22, 0x00	; 0
-    2c76:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
-
-			//check if the distance is greater than 50
-			if(UltrasonicRead>=50){
-    2c7a:	8f 85       	ldd	r24, Y+15	; 0x0f
-    2c7c:	98 89       	ldd	r25, Y+16	; 0x10
-    2c7e:	a9 89       	ldd	r26, Y+17	; 0x11
-    2c80:	ba 89       	ldd	r27, Y+18	; 0x12
-    2c82:	82 33       	cpi	r24, 0x32	; 50
-    2c84:	91 05       	cpc	r25, r1
-    2c86:	a1 05       	cpc	r26, r1
-    2c88:	b1 05       	cpc	r27, r1
-    2c8a:	48 f0       	brcs	.+18     	; 0x2c9e <main+0x98>
-				//Send forward custom character to the LCD
-				LCD_voidDisplaySpecialChar(LCD_MTR_Forward_ADDRESS);
-    2c8c:	80 91 af 01 	lds	r24, 0x01AF
-    2c90:	0e 94 47 15 	call	0x2a8e	; 0x2a8e <LCD_voidDisplaySpecialChar>
-				//Start the motors
-				MTR_voidMovement(MTR_FORWARD, 250);
-    2c94:	81 e0       	ldi	r24, 0x01	; 1
-    2c96:	6a ef       	ldi	r22, 0xFA	; 250
-    2c98:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
-    2c9c:	11 c0       	rjmp	.+34     	; 0x2cc0 <main+0xba>
-			}
-			//check if the distance is less than 50 stop the motors
-			else if(UltrasonicRead<50){
-    2c9e:	8f 85       	ldd	r24, Y+15	; 0x0f
-    2ca0:	98 89       	ldd	r25, Y+16	; 0x10
-    2ca2:	a9 89       	ldd	r26, Y+17	; 0x11
-    2ca4:	ba 89       	ldd	r27, Y+18	; 0x12
-    2ca6:	82 33       	cpi	r24, 0x32	; 50
-    2ca8:	91 05       	cpc	r25, r1
-    2caa:	a1 05       	cpc	r26, r1
-    2cac:	b1 05       	cpc	r27, r1
-    2cae:	40 f4       	brcc	.+16     	; 0x2cc0 <main+0xba>
-
-				//Stop the motors
-				MTR_voidMovement(MTR_STOP, 0);
-    2cb0:	80 e0       	ldi	r24, 0x00	; 0
-    2cb2:	60 e0       	ldi	r22, 0x00	; 0
-    2cb4:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
-
-				//Send stop to the LCD
-				LCD_voidWriteString("Stop.");
-    2cb8:	80 e6       	ldi	r24, 0x60	; 96
-    2cba:	90 e0       	ldi	r25, 0x00	; 0
-    2cbc:	0e 94 28 14 	call	0x2850	; 0x2850 <LCD_voidWriteString>
-    2cc0:	80 e0       	ldi	r24, 0x00	; 0
-    2cc2:	90 e0       	ldi	r25, 0x00	; 0
-    2cc4:	a8 ec       	ldi	r26, 0xC8	; 200
-    2cc6:	b2 e4       	ldi	r27, 0x42	; 66
-    2cc8:	8b 87       	std	Y+11, r24	; 0x0b
-    2cca:	9c 87       	std	Y+12, r25	; 0x0c
-    2ccc:	ad 87       	std	Y+13, r26	; 0x0d
-    2cce:	be 87       	std	Y+14, r27	; 0x0e
+	//Start the Ultrasonic read
+	ULTRASONIC_VoidStart();
+    2c20:	0e 94 d8 0f 	call	0x1fb0	; 0x1fb0 <ULTRASONIC_VoidStart>
+    2c24:	80 e0       	ldi	r24, 0x00	; 0
+    2c26:	90 e0       	ldi	r25, 0x00	; 0
+    2c28:	aa ef       	ldi	r26, 0xFA	; 250
+    2c2a:	b3 e4       	ldi	r27, 0x43	; 67
+    2c2c:	8b 87       	std	Y+11, r24	; 0x0b
+    2c2e:	9c 87       	std	Y+12, r25	; 0x0c
+    2c30:	ad 87       	std	Y+13, r26	; 0x0d
+    2c32:	be 87       	std	Y+14, r27	; 0x0e
  */
 void
 _delay_ms(double __ms)
 {
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
-    2cd0:	6b 85       	ldd	r22, Y+11	; 0x0b
-    2cd2:	7c 85       	ldd	r23, Y+12	; 0x0c
-    2cd4:	8d 85       	ldd	r24, Y+13	; 0x0d
-    2cd6:	9e 85       	ldd	r25, Y+14	; 0x0e
-    2cd8:	20 e0       	ldi	r18, 0x00	; 0
-    2cda:	30 e0       	ldi	r19, 0x00	; 0
-    2cdc:	4a e7       	ldi	r20, 0x7A	; 122
-    2cde:	55 e4       	ldi	r21, 0x45	; 69
-    2ce0:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
-    2ce4:	dc 01       	movw	r26, r24
-    2ce6:	cb 01       	movw	r24, r22
-    2ce8:	8f 83       	std	Y+7, r24	; 0x07
-    2cea:	98 87       	std	Y+8, r25	; 0x08
-    2cec:	a9 87       	std	Y+9, r26	; 0x09
-    2cee:	ba 87       	std	Y+10, r27	; 0x0a
+    2c34:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2c36:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2c38:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2c3a:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2c3c:	20 e0       	ldi	r18, 0x00	; 0
+    2c3e:	30 e0       	ldi	r19, 0x00	; 0
+    2c40:	4a e7       	ldi	r20, 0x7A	; 122
+    2c42:	55 e4       	ldi	r21, 0x45	; 69
+    2c44:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2c48:	dc 01       	movw	r26, r24
+    2c4a:	cb 01       	movw	r24, r22
+    2c4c:	8f 83       	std	Y+7, r24	; 0x07
+    2c4e:	98 87       	std	Y+8, r25	; 0x08
+    2c50:	a9 87       	std	Y+9, r26	; 0x09
+    2c52:	ba 87       	std	Y+10, r27	; 0x0a
 	if (__tmp < 1.0)
-    2cf0:	6f 81       	ldd	r22, Y+7	; 0x07
-    2cf2:	78 85       	ldd	r23, Y+8	; 0x08
-    2cf4:	89 85       	ldd	r24, Y+9	; 0x09
-    2cf6:	9a 85       	ldd	r25, Y+10	; 0x0a
-    2cf8:	20 e0       	ldi	r18, 0x00	; 0
-    2cfa:	30 e0       	ldi	r19, 0x00	; 0
-    2cfc:	40 e8       	ldi	r20, 0x80	; 128
-    2cfe:	5f e3       	ldi	r21, 0x3F	; 63
-    2d00:	0e 94 25 04 	call	0x84a	; 0x84a <__ltsf2>
-    2d04:	88 23       	and	r24, r24
-    2d06:	2c f4       	brge	.+10     	; 0x2d12 <main+0x10c>
+    2c54:	6f 81       	ldd	r22, Y+7	; 0x07
+    2c56:	78 85       	ldd	r23, Y+8	; 0x08
+    2c58:	89 85       	ldd	r24, Y+9	; 0x09
+    2c5a:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2c5c:	20 e0       	ldi	r18, 0x00	; 0
+    2c5e:	30 e0       	ldi	r19, 0x00	; 0
+    2c60:	40 e8       	ldi	r20, 0x80	; 128
+    2c62:	5f e3       	ldi	r21, 0x3F	; 63
+    2c64:	0e 94 25 04 	call	0x84a	; 0x84a <__ltsf2>
+    2c68:	88 23       	and	r24, r24
+    2c6a:	2c f4       	brge	.+10     	; 0x2c76 <Ultrasonic_Servo_BoolCheckRightSide+0x70>
 		__ticks = 1;
-    2d08:	81 e0       	ldi	r24, 0x01	; 1
-    2d0a:	90 e0       	ldi	r25, 0x00	; 0
-    2d0c:	9e 83       	std	Y+6, r25	; 0x06
-    2d0e:	8d 83       	std	Y+5, r24	; 0x05
-    2d10:	3f c0       	rjmp	.+126    	; 0x2d90 <main+0x18a>
+    2c6c:	81 e0       	ldi	r24, 0x01	; 1
+    2c6e:	90 e0       	ldi	r25, 0x00	; 0
+    2c70:	9e 83       	std	Y+6, r25	; 0x06
+    2c72:	8d 83       	std	Y+5, r24	; 0x05
+    2c74:	3f c0       	rjmp	.+126    	; 0x2cf4 <Ultrasonic_Servo_BoolCheckRightSide+0xee>
 	else if (__tmp > 65535)
-    2d12:	6f 81       	ldd	r22, Y+7	; 0x07
-    2d14:	78 85       	ldd	r23, Y+8	; 0x08
-    2d16:	89 85       	ldd	r24, Y+9	; 0x09
-    2d18:	9a 85       	ldd	r25, Y+10	; 0x0a
-    2d1a:	20 e0       	ldi	r18, 0x00	; 0
-    2d1c:	3f ef       	ldi	r19, 0xFF	; 255
-    2d1e:	4f e7       	ldi	r20, 0x7F	; 127
-    2d20:	57 e4       	ldi	r21, 0x47	; 71
-    2d22:	0e 94 c5 03 	call	0x78a	; 0x78a <__gtsf2>
-    2d26:	18 16       	cp	r1, r24
-    2d28:	4c f5       	brge	.+82     	; 0x2d7c <main+0x176>
+    2c76:	6f 81       	ldd	r22, Y+7	; 0x07
+    2c78:	78 85       	ldd	r23, Y+8	; 0x08
+    2c7a:	89 85       	ldd	r24, Y+9	; 0x09
+    2c7c:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2c7e:	20 e0       	ldi	r18, 0x00	; 0
+    2c80:	3f ef       	ldi	r19, 0xFF	; 255
+    2c82:	4f e7       	ldi	r20, 0x7F	; 127
+    2c84:	57 e4       	ldi	r21, 0x47	; 71
+    2c86:	0e 94 c5 03 	call	0x78a	; 0x78a <__gtsf2>
+    2c8a:	18 16       	cp	r1, r24
+    2c8c:	4c f5       	brge	.+82     	; 0x2ce0 <Ultrasonic_Servo_BoolCheckRightSide+0xda>
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
-    2d2a:	6b 85       	ldd	r22, Y+11	; 0x0b
-    2d2c:	7c 85       	ldd	r23, Y+12	; 0x0c
-    2d2e:	8d 85       	ldd	r24, Y+13	; 0x0d
-    2d30:	9e 85       	ldd	r25, Y+14	; 0x0e
-    2d32:	20 e0       	ldi	r18, 0x00	; 0
-    2d34:	30 e0       	ldi	r19, 0x00	; 0
-    2d36:	40 e2       	ldi	r20, 0x20	; 32
-    2d38:	51 e4       	ldi	r21, 0x41	; 65
-    2d3a:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
-    2d3e:	dc 01       	movw	r26, r24
-    2d40:	cb 01       	movw	r24, r22
-    2d42:	bc 01       	movw	r22, r24
-    2d44:	cd 01       	movw	r24, r26
-    2d46:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
-    2d4a:	dc 01       	movw	r26, r24
-    2d4c:	cb 01       	movw	r24, r22
-    2d4e:	9e 83       	std	Y+6, r25	; 0x06
-    2d50:	8d 83       	std	Y+5, r24	; 0x05
-    2d52:	0f c0       	rjmp	.+30     	; 0x2d72 <main+0x16c>
-    2d54:	80 e9       	ldi	r24, 0x90	; 144
-    2d56:	91 e0       	ldi	r25, 0x01	; 1
-    2d58:	9c 83       	std	Y+4, r25	; 0x04
-    2d5a:	8b 83       	std	Y+3, r24	; 0x03
-    2d5c:	8b 81       	ldd	r24, Y+3	; 0x03
-    2d5e:	9c 81       	ldd	r25, Y+4	; 0x04
-    2d60:	01 97       	sbiw	r24, 0x01	; 1
-    2d62:	f1 f7       	brne	.-4      	; 0x2d60 <main+0x15a>
-    2d64:	9c 83       	std	Y+4, r25	; 0x04
-    2d66:	8b 83       	std	Y+3, r24	; 0x03
+    2c8e:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2c90:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2c92:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2c94:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2c96:	20 e0       	ldi	r18, 0x00	; 0
+    2c98:	30 e0       	ldi	r19, 0x00	; 0
+    2c9a:	40 e2       	ldi	r20, 0x20	; 32
+    2c9c:	51 e4       	ldi	r21, 0x41	; 65
+    2c9e:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2ca2:	dc 01       	movw	r26, r24
+    2ca4:	cb 01       	movw	r24, r22
+    2ca6:	bc 01       	movw	r22, r24
+    2ca8:	cd 01       	movw	r24, r26
+    2caa:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2cae:	dc 01       	movw	r26, r24
+    2cb0:	cb 01       	movw	r24, r22
+    2cb2:	9e 83       	std	Y+6, r25	; 0x06
+    2cb4:	8d 83       	std	Y+5, r24	; 0x05
+    2cb6:	0f c0       	rjmp	.+30     	; 0x2cd6 <Ultrasonic_Servo_BoolCheckRightSide+0xd0>
+    2cb8:	80 e9       	ldi	r24, 0x90	; 144
+    2cba:	91 e0       	ldi	r25, 0x01	; 1
+    2cbc:	9c 83       	std	Y+4, r25	; 0x04
+    2cbe:	8b 83       	std	Y+3, r24	; 0x03
+    2cc0:	8b 81       	ldd	r24, Y+3	; 0x03
+    2cc2:	9c 81       	ldd	r25, Y+4	; 0x04
+    2cc4:	01 97       	sbiw	r24, 0x01	; 1
+    2cc6:	f1 f7       	brne	.-4      	; 0x2cc4 <Ultrasonic_Servo_BoolCheckRightSide+0xbe>
+    2cc8:	9c 83       	std	Y+4, r25	; 0x04
+    2cca:	8b 83       	std	Y+3, r24	; 0x03
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
-    2d68:	8d 81       	ldd	r24, Y+5	; 0x05
-    2d6a:	9e 81       	ldd	r25, Y+6	; 0x06
-    2d6c:	01 97       	sbiw	r24, 0x01	; 1
-    2d6e:	9e 83       	std	Y+6, r25	; 0x06
-    2d70:	8d 83       	std	Y+5, r24	; 0x05
+    2ccc:	8d 81       	ldd	r24, Y+5	; 0x05
+    2cce:	9e 81       	ldd	r25, Y+6	; 0x06
+    2cd0:	01 97       	sbiw	r24, 0x01	; 1
+    2cd2:	9e 83       	std	Y+6, r25	; 0x06
+    2cd4:	8d 83       	std	Y+5, r24	; 0x05
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
-    2d72:	8d 81       	ldd	r24, Y+5	; 0x05
-    2d74:	9e 81       	ldd	r25, Y+6	; 0x06
-    2d76:	00 97       	sbiw	r24, 0x00	; 0
-    2d78:	69 f7       	brne	.-38     	; 0x2d54 <main+0x14e>
-    2d7a:	5b cf       	rjmp	.-330    	; 0x2c32 <main+0x2c>
+    2cd6:	8d 81       	ldd	r24, Y+5	; 0x05
+    2cd8:	9e 81       	ldd	r25, Y+6	; 0x06
+    2cda:	00 97       	sbiw	r24, 0x00	; 0
+    2cdc:	69 f7       	brne	.-38     	; 0x2cb8 <Ultrasonic_Servo_BoolCheckRightSide+0xb2>
+    2cde:	14 c0       	rjmp	.+40     	; 0x2d08 <Ultrasonic_Servo_BoolCheckRightSide+0x102>
 			__ticks --;
 		}
 		return;
 	}
 	else
 		__ticks = (uint16_t)__tmp;
-    2d7c:	6f 81       	ldd	r22, Y+7	; 0x07
-    2d7e:	78 85       	ldd	r23, Y+8	; 0x08
-    2d80:	89 85       	ldd	r24, Y+9	; 0x09
-    2d82:	9a 85       	ldd	r25, Y+10	; 0x0a
-    2d84:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
-    2d88:	dc 01       	movw	r26, r24
-    2d8a:	cb 01       	movw	r24, r22
-    2d8c:	9e 83       	std	Y+6, r25	; 0x06
-    2d8e:	8d 83       	std	Y+5, r24	; 0x05
-    2d90:	8d 81       	ldd	r24, Y+5	; 0x05
-    2d92:	9e 81       	ldd	r25, Y+6	; 0x06
-    2d94:	9a 83       	std	Y+2, r25	; 0x02
-    2d96:	89 83       	std	Y+1, r24	; 0x01
-    2d98:	89 81       	ldd	r24, Y+1	; 0x01
-    2d9a:	9a 81       	ldd	r25, Y+2	; 0x02
-    2d9c:	01 97       	sbiw	r24, 0x01	; 1
-    2d9e:	f1 f7       	brne	.-4      	; 0x2d9c <main+0x196>
-    2da0:	9a 83       	std	Y+2, r25	; 0x02
-    2da2:	89 83       	std	Y+1, r24	; 0x01
-    2da4:	46 cf       	rjmp	.-372    	; 0x2c32 <main+0x2c>
+    2ce0:	6f 81       	ldd	r22, Y+7	; 0x07
+    2ce2:	78 85       	ldd	r23, Y+8	; 0x08
+    2ce4:	89 85       	ldd	r24, Y+9	; 0x09
+    2ce6:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2ce8:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2cec:	dc 01       	movw	r26, r24
+    2cee:	cb 01       	movw	r24, r22
+    2cf0:	9e 83       	std	Y+6, r25	; 0x06
+    2cf2:	8d 83       	std	Y+5, r24	; 0x05
+    2cf4:	8d 81       	ldd	r24, Y+5	; 0x05
+    2cf6:	9e 81       	ldd	r25, Y+6	; 0x06
+    2cf8:	9a 83       	std	Y+2, r25	; 0x02
+    2cfa:	89 83       	std	Y+1, r24	; 0x01
+    2cfc:	89 81       	ldd	r24, Y+1	; 0x01
+    2cfe:	9a 81       	ldd	r25, Y+2	; 0x02
+    2d00:	01 97       	sbiw	r24, 0x01	; 1
+    2d02:	f1 f7       	brne	.-4      	; 0x2d00 <Ultrasonic_Servo_BoolCheckRightSide+0xfa>
+    2d04:	9a 83       	std	Y+2, r25	; 0x02
+    2d06:	89 83       	std	Y+1, r24	; 0x01
 
-00002da6 <__mulsi3>:
-    2da6:	62 9f       	mul	r22, r18
-    2da8:	d0 01       	movw	r26, r0
-    2daa:	73 9f       	mul	r23, r19
-    2dac:	f0 01       	movw	r30, r0
-    2dae:	82 9f       	mul	r24, r18
-    2db0:	e0 0d       	add	r30, r0
-    2db2:	f1 1d       	adc	r31, r1
-    2db4:	64 9f       	mul	r22, r20
-    2db6:	e0 0d       	add	r30, r0
-    2db8:	f1 1d       	adc	r31, r1
-    2dba:	92 9f       	mul	r25, r18
-    2dbc:	f0 0d       	add	r31, r0
-    2dbe:	83 9f       	mul	r24, r19
-    2dc0:	f0 0d       	add	r31, r0
-    2dc2:	74 9f       	mul	r23, r20
-    2dc4:	f0 0d       	add	r31, r0
-    2dc6:	65 9f       	mul	r22, r21
-    2dc8:	f0 0d       	add	r31, r0
-    2dca:	99 27       	eor	r25, r25
-    2dcc:	72 9f       	mul	r23, r18
-    2dce:	b0 0d       	add	r27, r0
-    2dd0:	e1 1d       	adc	r30, r1
-    2dd2:	f9 1f       	adc	r31, r25
-    2dd4:	63 9f       	mul	r22, r19
-    2dd6:	b0 0d       	add	r27, r0
-    2dd8:	e1 1d       	adc	r30, r1
-    2dda:	f9 1f       	adc	r31, r25
-    2ddc:	bd 01       	movw	r22, r26
-    2dde:	cf 01       	movw	r24, r30
-    2de0:	11 24       	eor	r1, r1
-    2de2:	08 95       	ret
+	_delay_ms(500);
 
-00002de4 <__udivmodsi4>:
-    2de4:	a1 e2       	ldi	r26, 0x21	; 33
-    2de6:	1a 2e       	mov	r1, r26
-    2de8:	aa 1b       	sub	r26, r26
-    2dea:	bb 1b       	sub	r27, r27
-    2dec:	fd 01       	movw	r30, r26
-    2dee:	0d c0       	rjmp	.+26     	; 0x2e0a <__udivmodsi4_ep>
+	//Write the distance to the UltrasonicRead variable
+	UltrasonicRead = ULTRASONIC_VoidVal();
+    2d08:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2d0c:	dc 01       	movw	r26, r24
+    2d0e:	cb 01       	movw	r24, r22
+    2d10:	80 93 de 01 	sts	0x01DE, r24
+    2d14:	90 93 df 01 	sts	0x01DF, r25
+    2d18:	a0 93 e0 01 	sts	0x01E0, r26
+    2d1c:	b0 93 e1 01 	sts	0x01E1, r27
 
-00002df0 <__udivmodsi4_loop>:
-    2df0:	aa 1f       	adc	r26, r26
-    2df2:	bb 1f       	adc	r27, r27
-    2df4:	ee 1f       	adc	r30, r30
-    2df6:	ff 1f       	adc	r31, r31
-    2df8:	a2 17       	cp	r26, r18
-    2dfa:	b3 07       	cpc	r27, r19
-    2dfc:	e4 07       	cpc	r30, r20
-    2dfe:	f5 07       	cpc	r31, r21
-    2e00:	20 f0       	brcs	.+8      	; 0x2e0a <__udivmodsi4_ep>
-    2e02:	a2 1b       	sub	r26, r18
-    2e04:	b3 0b       	sbc	r27, r19
-    2e06:	e4 0b       	sbc	r30, r20
-    2e08:	f5 0b       	sbc	r31, r21
+	//check if the distance is greater than 50
+	if(ULTRASONIC_VoidVal()>=50){
+    2d20:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2d24:	dc 01       	movw	r26, r24
+    2d26:	cb 01       	movw	r24, r22
+    2d28:	82 33       	cpi	r24, 0x32	; 50
+    2d2a:	91 05       	cpc	r25, r1
+    2d2c:	a1 05       	cpc	r26, r1
+    2d2e:	b1 05       	cpc	r27, r1
+    2d30:	18 f0       	brcs	.+6      	; 0x2d38 <Ultrasonic_Servo_BoolCheckRightSide+0x132>
+		//Return TRUE to indicate that the right is empty
+		return TRUE;//Right empty
+    2d32:	81 e0       	ldi	r24, 0x01	; 1
+    2d34:	8f 87       	std	Y+15, r24	; 0x0f
+    2d36:	01 c0       	rjmp	.+2      	; 0x2d3a <Ultrasonic_Servo_BoolCheckRightSide+0x134>
+	}
+	//Return FALSE to indicate that the right is not empty
+	return FALSE;
+    2d38:	1f 86       	std	Y+15, r1	; 0x0f
+    2d3a:	8f 85       	ldd	r24, Y+15	; 0x0f
+}
+    2d3c:	2f 96       	adiw	r28, 0x0f	; 15
+    2d3e:	0f b6       	in	r0, 0x3f	; 63
+    2d40:	f8 94       	cli
+    2d42:	de bf       	out	0x3e, r29	; 62
+    2d44:	0f be       	out	0x3f, r0	; 63
+    2d46:	cd bf       	out	0x3d, r28	; 61
+    2d48:	cf 91       	pop	r28
+    2d4a:	df 91       	pop	r29
+    2d4c:	08 95       	ret
 
-00002e0a <__udivmodsi4_ep>:
-    2e0a:	66 1f       	adc	r22, r22
-    2e0c:	77 1f       	adc	r23, r23
-    2e0e:	88 1f       	adc	r24, r24
-    2e10:	99 1f       	adc	r25, r25
-    2e12:	1a 94       	dec	r1
-    2e14:	69 f7       	brne	.-38     	; 0x2df0 <__udivmodsi4_loop>
-    2e16:	60 95       	com	r22
-    2e18:	70 95       	com	r23
-    2e1a:	80 95       	com	r24
-    2e1c:	90 95       	com	r25
-    2e1e:	9b 01       	movw	r18, r22
-    2e20:	ac 01       	movw	r20, r24
-    2e22:	bd 01       	movw	r22, r26
-    2e24:	cf 01       	movw	r24, r30
-    2e26:	08 95       	ret
+00002d4e <Ultrasonic_Servo_BoolCheckFrontSide>:
 
-00002e28 <__prologue_saves__>:
-    2e28:	2f 92       	push	r2
-    2e2a:	3f 92       	push	r3
-    2e2c:	4f 92       	push	r4
-    2e2e:	5f 92       	push	r5
-    2e30:	6f 92       	push	r6
-    2e32:	7f 92       	push	r7
-    2e34:	8f 92       	push	r8
-    2e36:	9f 92       	push	r9
-    2e38:	af 92       	push	r10
-    2e3a:	bf 92       	push	r11
-    2e3c:	cf 92       	push	r12
-    2e3e:	df 92       	push	r13
-    2e40:	ef 92       	push	r14
-    2e42:	ff 92       	push	r15
-    2e44:	0f 93       	push	r16
-    2e46:	1f 93       	push	r17
-    2e48:	cf 93       	push	r28
-    2e4a:	df 93       	push	r29
-    2e4c:	cd b7       	in	r28, 0x3d	; 61
-    2e4e:	de b7       	in	r29, 0x3e	; 62
-    2e50:	ca 1b       	sub	r28, r26
-    2e52:	db 0b       	sbc	r29, r27
-    2e54:	0f b6       	in	r0, 0x3f	; 63
-    2e56:	f8 94       	cli
-    2e58:	de bf       	out	0x3e, r29	; 62
-    2e5a:	0f be       	out	0x3f, r0	; 63
-    2e5c:	cd bf       	out	0x3d, r28	; 61
-    2e5e:	09 94       	ijmp
+/*--------------------------------------------------------------------------------------------*/
+BOOL Ultrasonic_Servo_BoolCheckFrontSide(){
+    2d4e:	df 93       	push	r29
+    2d50:	cf 93       	push	r28
+    2d52:	cd b7       	in	r28, 0x3d	; 61
+    2d54:	de b7       	in	r29, 0x3e	; 62
+    2d56:	2f 97       	sbiw	r28, 0x0f	; 15
+    2d58:	0f b6       	in	r0, 0x3f	; 63
+    2d5a:	f8 94       	cli
+    2d5c:	de bf       	out	0x3e, r29	; 62
+    2d5e:	0f be       	out	0x3f, r0	; 63
+    2d60:	cd bf       	out	0x3d, r28	; 61
+	//Move the SERVO to be forward
+	Servo_voidSetAngle(0);
+    2d62:	80 e0       	ldi	r24, 0x00	; 0
+    2d64:	0e 94 d5 10 	call	0x21aa	; 0x21aa <Servo_voidSetAngle>
 
-00002e60 <__epilogue_restores__>:
-    2e60:	2a 88       	ldd	r2, Y+18	; 0x12
-    2e62:	39 88       	ldd	r3, Y+17	; 0x11
-    2e64:	48 88       	ldd	r4, Y+16	; 0x10
-    2e66:	5f 84       	ldd	r5, Y+15	; 0x0f
-    2e68:	6e 84       	ldd	r6, Y+14	; 0x0e
-    2e6a:	7d 84       	ldd	r7, Y+13	; 0x0d
-    2e6c:	8c 84       	ldd	r8, Y+12	; 0x0c
-    2e6e:	9b 84       	ldd	r9, Y+11	; 0x0b
-    2e70:	aa 84       	ldd	r10, Y+10	; 0x0a
-    2e72:	b9 84       	ldd	r11, Y+9	; 0x09
-    2e74:	c8 84       	ldd	r12, Y+8	; 0x08
-    2e76:	df 80       	ldd	r13, Y+7	; 0x07
-    2e78:	ee 80       	ldd	r14, Y+6	; 0x06
-    2e7a:	fd 80       	ldd	r15, Y+5	; 0x05
-    2e7c:	0c 81       	ldd	r16, Y+4	; 0x04
-    2e7e:	1b 81       	ldd	r17, Y+3	; 0x03
-    2e80:	aa 81       	ldd	r26, Y+2	; 0x02
-    2e82:	b9 81       	ldd	r27, Y+1	; 0x01
-    2e84:	ce 0f       	add	r28, r30
-    2e86:	d1 1d       	adc	r29, r1
-    2e88:	0f b6       	in	r0, 0x3f	; 63
-    2e8a:	f8 94       	cli
-    2e8c:	de bf       	out	0x3e, r29	; 62
-    2e8e:	0f be       	out	0x3f, r0	; 63
-    2e90:	cd bf       	out	0x3d, r28	; 61
-    2e92:	ed 01       	movw	r28, r26
+	//Start the Ultrasonic read
+	ULTRASONIC_VoidStart();
+    2d68:	0e 94 d8 0f 	call	0x1fb0	; 0x1fb0 <ULTRASONIC_VoidStart>
+    2d6c:	80 e0       	ldi	r24, 0x00	; 0
+    2d6e:	90 e0       	ldi	r25, 0x00	; 0
+    2d70:	aa ef       	ldi	r26, 0xFA	; 250
+    2d72:	b3 e4       	ldi	r27, 0x43	; 67
+    2d74:	8b 87       	std	Y+11, r24	; 0x0b
+    2d76:	9c 87       	std	Y+12, r25	; 0x0c
+    2d78:	ad 87       	std	Y+13, r26	; 0x0d
+    2d7a:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    2d7c:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2d7e:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2d80:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2d82:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2d84:	20 e0       	ldi	r18, 0x00	; 0
+    2d86:	30 e0       	ldi	r19, 0x00	; 0
+    2d88:	4a e7       	ldi	r20, 0x7A	; 122
+    2d8a:	55 e4       	ldi	r21, 0x45	; 69
+    2d8c:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2d90:	dc 01       	movw	r26, r24
+    2d92:	cb 01       	movw	r24, r22
+    2d94:	8f 83       	std	Y+7, r24	; 0x07
+    2d96:	98 87       	std	Y+8, r25	; 0x08
+    2d98:	a9 87       	std	Y+9, r26	; 0x09
+    2d9a:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    2d9c:	6f 81       	ldd	r22, Y+7	; 0x07
+    2d9e:	78 85       	ldd	r23, Y+8	; 0x08
+    2da0:	89 85       	ldd	r24, Y+9	; 0x09
+    2da2:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2da4:	20 e0       	ldi	r18, 0x00	; 0
+    2da6:	30 e0       	ldi	r19, 0x00	; 0
+    2da8:	40 e8       	ldi	r20, 0x80	; 128
+    2daa:	5f e3       	ldi	r21, 0x3F	; 63
+    2dac:	0e 94 25 04 	call	0x84a	; 0x84a <__ltsf2>
+    2db0:	88 23       	and	r24, r24
+    2db2:	2c f4       	brge	.+10     	; 0x2dbe <Ultrasonic_Servo_BoolCheckFrontSide+0x70>
+		__ticks = 1;
+    2db4:	81 e0       	ldi	r24, 0x01	; 1
+    2db6:	90 e0       	ldi	r25, 0x00	; 0
+    2db8:	9e 83       	std	Y+6, r25	; 0x06
+    2dba:	8d 83       	std	Y+5, r24	; 0x05
+    2dbc:	3f c0       	rjmp	.+126    	; 0x2e3c <Ultrasonic_Servo_BoolCheckFrontSide+0xee>
+	else if (__tmp > 65535)
+    2dbe:	6f 81       	ldd	r22, Y+7	; 0x07
+    2dc0:	78 85       	ldd	r23, Y+8	; 0x08
+    2dc2:	89 85       	ldd	r24, Y+9	; 0x09
+    2dc4:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2dc6:	20 e0       	ldi	r18, 0x00	; 0
+    2dc8:	3f ef       	ldi	r19, 0xFF	; 255
+    2dca:	4f e7       	ldi	r20, 0x7F	; 127
+    2dcc:	57 e4       	ldi	r21, 0x47	; 71
+    2dce:	0e 94 c5 03 	call	0x78a	; 0x78a <__gtsf2>
+    2dd2:	18 16       	cp	r1, r24
+    2dd4:	4c f5       	brge	.+82     	; 0x2e28 <Ultrasonic_Servo_BoolCheckFrontSide+0xda>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    2dd6:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2dd8:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2dda:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2ddc:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2dde:	20 e0       	ldi	r18, 0x00	; 0
+    2de0:	30 e0       	ldi	r19, 0x00	; 0
+    2de2:	40 e2       	ldi	r20, 0x20	; 32
+    2de4:	51 e4       	ldi	r21, 0x41	; 65
+    2de6:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2dea:	dc 01       	movw	r26, r24
+    2dec:	cb 01       	movw	r24, r22
+    2dee:	bc 01       	movw	r22, r24
+    2df0:	cd 01       	movw	r24, r26
+    2df2:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2df6:	dc 01       	movw	r26, r24
+    2df8:	cb 01       	movw	r24, r22
+    2dfa:	9e 83       	std	Y+6, r25	; 0x06
+    2dfc:	8d 83       	std	Y+5, r24	; 0x05
+    2dfe:	0f c0       	rjmp	.+30     	; 0x2e1e <Ultrasonic_Servo_BoolCheckFrontSide+0xd0>
+    2e00:	80 e9       	ldi	r24, 0x90	; 144
+    2e02:	91 e0       	ldi	r25, 0x01	; 1
+    2e04:	9c 83       	std	Y+4, r25	; 0x04
+    2e06:	8b 83       	std	Y+3, r24	; 0x03
+    2e08:	8b 81       	ldd	r24, Y+3	; 0x03
+    2e0a:	9c 81       	ldd	r25, Y+4	; 0x04
+    2e0c:	01 97       	sbiw	r24, 0x01	; 1
+    2e0e:	f1 f7       	brne	.-4      	; 0x2e0c <Ultrasonic_Servo_BoolCheckFrontSide+0xbe>
+    2e10:	9c 83       	std	Y+4, r25	; 0x04
+    2e12:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    2e14:	8d 81       	ldd	r24, Y+5	; 0x05
+    2e16:	9e 81       	ldd	r25, Y+6	; 0x06
+    2e18:	01 97       	sbiw	r24, 0x01	; 1
+    2e1a:	9e 83       	std	Y+6, r25	; 0x06
+    2e1c:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    2e1e:	8d 81       	ldd	r24, Y+5	; 0x05
+    2e20:	9e 81       	ldd	r25, Y+6	; 0x06
+    2e22:	00 97       	sbiw	r24, 0x00	; 0
+    2e24:	69 f7       	brne	.-38     	; 0x2e00 <Ultrasonic_Servo_BoolCheckFrontSide+0xb2>
+    2e26:	14 c0       	rjmp	.+40     	; 0x2e50 <Ultrasonic_Servo_BoolCheckFrontSide+0x102>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    2e28:	6f 81       	ldd	r22, Y+7	; 0x07
+    2e2a:	78 85       	ldd	r23, Y+8	; 0x08
+    2e2c:	89 85       	ldd	r24, Y+9	; 0x09
+    2e2e:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2e30:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2e34:	dc 01       	movw	r26, r24
+    2e36:	cb 01       	movw	r24, r22
+    2e38:	9e 83       	std	Y+6, r25	; 0x06
+    2e3a:	8d 83       	std	Y+5, r24	; 0x05
+    2e3c:	8d 81       	ldd	r24, Y+5	; 0x05
+    2e3e:	9e 81       	ldd	r25, Y+6	; 0x06
+    2e40:	9a 83       	std	Y+2, r25	; 0x02
+    2e42:	89 83       	std	Y+1, r24	; 0x01
+    2e44:	89 81       	ldd	r24, Y+1	; 0x01
+    2e46:	9a 81       	ldd	r25, Y+2	; 0x02
+    2e48:	01 97       	sbiw	r24, 0x01	; 1
+    2e4a:	f1 f7       	brne	.-4      	; 0x2e48 <Ultrasonic_Servo_BoolCheckFrontSide+0xfa>
+    2e4c:	9a 83       	std	Y+2, r25	; 0x02
+    2e4e:	89 83       	std	Y+1, r24	; 0x01
+
+	_delay_ms(500);
+
+	//Write the distance to the UltrasonicRead variable
+	UltrasonicRead = ULTRASONIC_VoidVal();
+    2e50:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2e54:	dc 01       	movw	r26, r24
+    2e56:	cb 01       	movw	r24, r22
+    2e58:	80 93 de 01 	sts	0x01DE, r24
+    2e5c:	90 93 df 01 	sts	0x01DF, r25
+    2e60:	a0 93 e0 01 	sts	0x01E0, r26
+    2e64:	b0 93 e1 01 	sts	0x01E1, r27
+
+	//check if the distance is greater than 50
+	if(ULTRASONIC_VoidVal()>=50){
+    2e68:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2e6c:	dc 01       	movw	r26, r24
+    2e6e:	cb 01       	movw	r24, r22
+    2e70:	82 33       	cpi	r24, 0x32	; 50
+    2e72:	91 05       	cpc	r25, r1
+    2e74:	a1 05       	cpc	r26, r1
+    2e76:	b1 05       	cpc	r27, r1
+    2e78:	18 f0       	brcs	.+6      	; 0x2e80 <Ultrasonic_Servo_BoolCheckFrontSide+0x132>
+		//Return TRUE to indicate that the front is empty
+		return TRUE;//Front empty
+    2e7a:	81 e0       	ldi	r24, 0x01	; 1
+    2e7c:	8f 87       	std	Y+15, r24	; 0x0f
+    2e7e:	01 c0       	rjmp	.+2      	; 0x2e82 <Ultrasonic_Servo_BoolCheckFrontSide+0x134>
+	}
+	//Return FALSE to indicate that the front is not empty
+	return FALSE;
+    2e80:	1f 86       	std	Y+15, r1	; 0x0f
+    2e82:	8f 85       	ldd	r24, Y+15	; 0x0f
+}
+    2e84:	2f 96       	adiw	r28, 0x0f	; 15
+    2e86:	0f b6       	in	r0, 0x3f	; 63
+    2e88:	f8 94       	cli
+    2e8a:	de bf       	out	0x3e, r29	; 62
+    2e8c:	0f be       	out	0x3f, r0	; 63
+    2e8e:	cd bf       	out	0x3d, r28	; 61
+    2e90:	cf 91       	pop	r28
+    2e92:	df 91       	pop	r29
     2e94:	08 95       	ret
 
-00002e96 <_exit>:
-    2e96:	f8 94       	cli
+00002e96 <Ultrasonic_Servo_BoolCheckLiftSide>:
 
-00002e98 <__stop_program>:
-    2e98:	ff cf       	rjmp	.-2      	; 0x2e98 <__stop_program>
+/*--------------------------------------------------------------------------------------------*/
+BOOL Ultrasonic_Servo_BoolCheckLiftSide(){
+    2e96:	df 93       	push	r29
+    2e98:	cf 93       	push	r28
+    2e9a:	cd b7       	in	r28, 0x3d	; 61
+    2e9c:	de b7       	in	r29, 0x3e	; 62
+    2e9e:	2f 97       	sbiw	r28, 0x0f	; 15
+    2ea0:	0f b6       	in	r0, 0x3f	; 63
+    2ea2:	f8 94       	cli
+    2ea4:	de bf       	out	0x3e, r29	; 62
+    2ea6:	0f be       	out	0x3f, r0	; 63
+    2ea8:	cd bf       	out	0x3d, r28	; 61
+	//Move the SERVO to the lift
+	Servo_voidSetAngle(-90);
+    2eaa:	86 ea       	ldi	r24, 0xA6	; 166
+    2eac:	0e 94 d5 10 	call	0x21aa	; 0x21aa <Servo_voidSetAngle>
+
+	//Start the Ultrasonic read
+	ULTRASONIC_VoidStart();
+    2eb0:	0e 94 d8 0f 	call	0x1fb0	; 0x1fb0 <ULTRASONIC_VoidStart>
+    2eb4:	80 e0       	ldi	r24, 0x00	; 0
+    2eb6:	90 e0       	ldi	r25, 0x00	; 0
+    2eb8:	aa ef       	ldi	r26, 0xFA	; 250
+    2eba:	b3 e4       	ldi	r27, 0x43	; 67
+    2ebc:	8b 87       	std	Y+11, r24	; 0x0b
+    2ebe:	9c 87       	std	Y+12, r25	; 0x0c
+    2ec0:	ad 87       	std	Y+13, r26	; 0x0d
+    2ec2:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    2ec4:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2ec6:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2ec8:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2eca:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2ecc:	20 e0       	ldi	r18, 0x00	; 0
+    2ece:	30 e0       	ldi	r19, 0x00	; 0
+    2ed0:	4a e7       	ldi	r20, 0x7A	; 122
+    2ed2:	55 e4       	ldi	r21, 0x45	; 69
+    2ed4:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2ed8:	dc 01       	movw	r26, r24
+    2eda:	cb 01       	movw	r24, r22
+    2edc:	8f 83       	std	Y+7, r24	; 0x07
+    2ede:	98 87       	std	Y+8, r25	; 0x08
+    2ee0:	a9 87       	std	Y+9, r26	; 0x09
+    2ee2:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    2ee4:	6f 81       	ldd	r22, Y+7	; 0x07
+    2ee6:	78 85       	ldd	r23, Y+8	; 0x08
+    2ee8:	89 85       	ldd	r24, Y+9	; 0x09
+    2eea:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2eec:	20 e0       	ldi	r18, 0x00	; 0
+    2eee:	30 e0       	ldi	r19, 0x00	; 0
+    2ef0:	40 e8       	ldi	r20, 0x80	; 128
+    2ef2:	5f e3       	ldi	r21, 0x3F	; 63
+    2ef4:	0e 94 25 04 	call	0x84a	; 0x84a <__ltsf2>
+    2ef8:	88 23       	and	r24, r24
+    2efa:	2c f4       	brge	.+10     	; 0x2f06 <Ultrasonic_Servo_BoolCheckLiftSide+0x70>
+		__ticks = 1;
+    2efc:	81 e0       	ldi	r24, 0x01	; 1
+    2efe:	90 e0       	ldi	r25, 0x00	; 0
+    2f00:	9e 83       	std	Y+6, r25	; 0x06
+    2f02:	8d 83       	std	Y+5, r24	; 0x05
+    2f04:	3f c0       	rjmp	.+126    	; 0x2f84 <Ultrasonic_Servo_BoolCheckLiftSide+0xee>
+	else if (__tmp > 65535)
+    2f06:	6f 81       	ldd	r22, Y+7	; 0x07
+    2f08:	78 85       	ldd	r23, Y+8	; 0x08
+    2f0a:	89 85       	ldd	r24, Y+9	; 0x09
+    2f0c:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2f0e:	20 e0       	ldi	r18, 0x00	; 0
+    2f10:	3f ef       	ldi	r19, 0xFF	; 255
+    2f12:	4f e7       	ldi	r20, 0x7F	; 127
+    2f14:	57 e4       	ldi	r21, 0x47	; 71
+    2f16:	0e 94 c5 03 	call	0x78a	; 0x78a <__gtsf2>
+    2f1a:	18 16       	cp	r1, r24
+    2f1c:	4c f5       	brge	.+82     	; 0x2f70 <Ultrasonic_Servo_BoolCheckLiftSide+0xda>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    2f1e:	6b 85       	ldd	r22, Y+11	; 0x0b
+    2f20:	7c 85       	ldd	r23, Y+12	; 0x0c
+    2f22:	8d 85       	ldd	r24, Y+13	; 0x0d
+    2f24:	9e 85       	ldd	r25, Y+14	; 0x0e
+    2f26:	20 e0       	ldi	r18, 0x00	; 0
+    2f28:	30 e0       	ldi	r19, 0x00	; 0
+    2f2a:	40 e2       	ldi	r20, 0x20	; 32
+    2f2c:	51 e4       	ldi	r21, 0x41	; 65
+    2f2e:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    2f32:	dc 01       	movw	r26, r24
+    2f34:	cb 01       	movw	r24, r22
+    2f36:	bc 01       	movw	r22, r24
+    2f38:	cd 01       	movw	r24, r26
+    2f3a:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2f3e:	dc 01       	movw	r26, r24
+    2f40:	cb 01       	movw	r24, r22
+    2f42:	9e 83       	std	Y+6, r25	; 0x06
+    2f44:	8d 83       	std	Y+5, r24	; 0x05
+    2f46:	0f c0       	rjmp	.+30     	; 0x2f66 <Ultrasonic_Servo_BoolCheckLiftSide+0xd0>
+    2f48:	80 e9       	ldi	r24, 0x90	; 144
+    2f4a:	91 e0       	ldi	r25, 0x01	; 1
+    2f4c:	9c 83       	std	Y+4, r25	; 0x04
+    2f4e:	8b 83       	std	Y+3, r24	; 0x03
+    2f50:	8b 81       	ldd	r24, Y+3	; 0x03
+    2f52:	9c 81       	ldd	r25, Y+4	; 0x04
+    2f54:	01 97       	sbiw	r24, 0x01	; 1
+    2f56:	f1 f7       	brne	.-4      	; 0x2f54 <Ultrasonic_Servo_BoolCheckLiftSide+0xbe>
+    2f58:	9c 83       	std	Y+4, r25	; 0x04
+    2f5a:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    2f5c:	8d 81       	ldd	r24, Y+5	; 0x05
+    2f5e:	9e 81       	ldd	r25, Y+6	; 0x06
+    2f60:	01 97       	sbiw	r24, 0x01	; 1
+    2f62:	9e 83       	std	Y+6, r25	; 0x06
+    2f64:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    2f66:	8d 81       	ldd	r24, Y+5	; 0x05
+    2f68:	9e 81       	ldd	r25, Y+6	; 0x06
+    2f6a:	00 97       	sbiw	r24, 0x00	; 0
+    2f6c:	69 f7       	brne	.-38     	; 0x2f48 <Ultrasonic_Servo_BoolCheckLiftSide+0xb2>
+    2f6e:	14 c0       	rjmp	.+40     	; 0x2f98 <Ultrasonic_Servo_BoolCheckLiftSide+0x102>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    2f70:	6f 81       	ldd	r22, Y+7	; 0x07
+    2f72:	78 85       	ldd	r23, Y+8	; 0x08
+    2f74:	89 85       	ldd	r24, Y+9	; 0x09
+    2f76:	9a 85       	ldd	r25, Y+10	; 0x0a
+    2f78:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    2f7c:	dc 01       	movw	r26, r24
+    2f7e:	cb 01       	movw	r24, r22
+    2f80:	9e 83       	std	Y+6, r25	; 0x06
+    2f82:	8d 83       	std	Y+5, r24	; 0x05
+    2f84:	8d 81       	ldd	r24, Y+5	; 0x05
+    2f86:	9e 81       	ldd	r25, Y+6	; 0x06
+    2f88:	9a 83       	std	Y+2, r25	; 0x02
+    2f8a:	89 83       	std	Y+1, r24	; 0x01
+    2f8c:	89 81       	ldd	r24, Y+1	; 0x01
+    2f8e:	9a 81       	ldd	r25, Y+2	; 0x02
+    2f90:	01 97       	sbiw	r24, 0x01	; 1
+    2f92:	f1 f7       	brne	.-4      	; 0x2f90 <Ultrasonic_Servo_BoolCheckLiftSide+0xfa>
+    2f94:	9a 83       	std	Y+2, r25	; 0x02
+    2f96:	89 83       	std	Y+1, r24	; 0x01
+
+	_delay_ms(500);
+
+	//Write the distance to the UltrasonicRead variable
+	UltrasonicRead = ULTRASONIC_VoidVal();
+    2f98:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2f9c:	dc 01       	movw	r26, r24
+    2f9e:	cb 01       	movw	r24, r22
+    2fa0:	80 93 de 01 	sts	0x01DE, r24
+    2fa4:	90 93 df 01 	sts	0x01DF, r25
+    2fa8:	a0 93 e0 01 	sts	0x01E0, r26
+    2fac:	b0 93 e1 01 	sts	0x01E1, r27
+
+	//check if the distance is greater than 50
+	if(ULTRASONIC_VoidVal()>=50){
+    2fb0:	0e 94 b3 10 	call	0x2166	; 0x2166 <ULTRASONIC_VoidVal>
+    2fb4:	dc 01       	movw	r26, r24
+    2fb6:	cb 01       	movw	r24, r22
+    2fb8:	82 33       	cpi	r24, 0x32	; 50
+    2fba:	91 05       	cpc	r25, r1
+    2fbc:	a1 05       	cpc	r26, r1
+    2fbe:	b1 05       	cpc	r27, r1
+    2fc0:	18 f0       	brcs	.+6      	; 0x2fc8 <Ultrasonic_Servo_BoolCheckLiftSide+0x132>
+		//Return true to indicate that the lift is empty
+		return TRUE;//Lift empty
+    2fc2:	81 e0       	ldi	r24, 0x01	; 1
+    2fc4:	8f 87       	std	Y+15, r24	; 0x0f
+    2fc6:	01 c0       	rjmp	.+2      	; 0x2fca <Ultrasonic_Servo_BoolCheckLiftSide+0x134>
+	}
+	//Return FALSE to indicate that the lift is not empty
+	return FALSE;
+    2fc8:	1f 86       	std	Y+15, r1	; 0x0f
+    2fca:	8f 85       	ldd	r24, Y+15	; 0x0f
+}
+    2fcc:	2f 96       	adiw	r28, 0x0f	; 15
+    2fce:	0f b6       	in	r0, 0x3f	; 63
+    2fd0:	f8 94       	cli
+    2fd2:	de bf       	out	0x3e, r29	; 62
+    2fd4:	0f be       	out	0x3f, r0	; 63
+    2fd6:	cd bf       	out	0x3d, r28	; 61
+    2fd8:	cf 91       	pop	r28
+    2fda:	df 91       	pop	r29
+    2fdc:	08 95       	ret
+
+00002fde <main>:
+
+/*--------------------------------------------------------------------------------------------*/
+
+int main(){
+    2fde:	df 93       	push	r29
+    2fe0:	cf 93       	push	r28
+    2fe2:	cd b7       	in	r28, 0x3d	; 61
+    2fe4:	de b7       	in	r29, 0x3e	; 62
+    2fe6:	63 97       	sbiw	r28, 0x13	; 19
+    2fe8:	0f b6       	in	r0, 0x3f	; 63
+    2fea:	f8 94       	cli
+    2fec:	de bf       	out	0x3e, r29	; 62
+    2fee:	0f be       	out	0x3f, r0	; 63
+    2ff0:	cd bf       	out	0x3d, r28	; 61
+
+	//LCD
+	LCD_voidInit();
+    2ff2:	0e 94 f5 11 	call	0x23ea	; 0x23ea <LCD_voidInit>
+
+	LCD_MTR_VoidCustomCharacters();
+    2ff6:	0e 94 54 15 	call	0x2aa8	; 0x2aa8 <LCD_MTR_VoidCustomCharacters>
+
+	//Motor
+	u8 MovementState = 0;
+    2ffa:	1f 86       	std	Y+15, r1	; 0x0f
+	MTR_voidInit();
+    2ffc:	0e 94 0d 11 	call	0x221a	; 0x221a <MTR_voidInit>
+
+	//SERVO
+	SERVO_voidInit();
+    3000:	0e 94 c4 10 	call	0x2188	; 0x2188 <SERVO_voidInit>
+
+	//ULTRASONIC
+	ULTRASONIC_voidInit();
+    3004:	0e 94 b8 0f 	call	0x1f70	; 0x1f70 <ULTRASONIC_voidInit>
+
+	while (1){
+
+		//Clear the display
+		LCD_voidClear();
+    3008:	0e 94 7f 14 	call	0x28fe	; 0x28fe <LCD_voidClear>
+
+		//Write the distance to the LCD
+		LCD_voidWriteNumber(UltrasonicRead);
+    300c:	80 91 de 01 	lds	r24, 0x01DE
+    3010:	90 91 df 01 	lds	r25, 0x01DF
+    3014:	a0 91 e0 01 	lds	r26, 0x01E0
+    3018:	b0 91 e1 01 	lds	r27, 0x01E1
+    301c:	bc 01       	movw	r22, r24
+    301e:	cd 01       	movw	r24, r26
+    3020:	0e 94 a0 14 	call	0x2940	; 0x2940 <LCD_voidWriteNumber>
+
+		switch(MovementState){
+    3024:	8f 85       	ldd	r24, Y+15	; 0x0f
+    3026:	28 2f       	mov	r18, r24
+    3028:	30 e0       	ldi	r19, 0x00	; 0
+    302a:	3b 8b       	std	Y+19, r19	; 0x13
+    302c:	2a 8b       	std	Y+18, r18	; 0x12
+    302e:	8a 89       	ldd	r24, Y+18	; 0x12
+    3030:	9b 89       	ldd	r25, Y+19	; 0x13
+    3032:	81 30       	cpi	r24, 0x01	; 1
+    3034:	91 05       	cpc	r25, r1
+    3036:	e1 f1       	breq	.+120    	; 0x30b0 <main+0xd2>
+    3038:	2a 89       	ldd	r18, Y+18	; 0x12
+    303a:	3b 89       	ldd	r19, Y+19	; 0x13
+    303c:	22 30       	cpi	r18, 0x02	; 2
+    303e:	31 05       	cpc	r19, r1
+    3040:	2c f4       	brge	.+10     	; 0x304c <main+0x6e>
+    3042:	8a 89       	ldd	r24, Y+18	; 0x12
+    3044:	9b 89       	ldd	r25, Y+19	; 0x13
+    3046:	00 97       	sbiw	r24, 0x00	; 0
+    3048:	71 f0       	breq	.+28     	; 0x3066 <main+0x88>
+    304a:	a4 c0       	rjmp	.+328    	; 0x3194 <main+0x1b6>
+    304c:	2a 89       	ldd	r18, Y+18	; 0x12
+    304e:	3b 89       	ldd	r19, Y+19	; 0x13
+    3050:	22 30       	cpi	r18, 0x02	; 2
+    3052:	31 05       	cpc	r19, r1
+    3054:	09 f4       	brne	.+2      	; 0x3058 <main+0x7a>
+    3056:	77 c0       	rjmp	.+238    	; 0x3146 <main+0x168>
+    3058:	8a 89       	ldd	r24, Y+18	; 0x12
+    305a:	9b 89       	ldd	r25, Y+19	; 0x13
+    305c:	83 30       	cpi	r24, 0x03	; 3
+    305e:	91 05       	cpc	r25, r1
+    3060:	09 f4       	brne	.+2      	; 0x3064 <main+0x86>
+    3062:	85 c0       	rjmp	.+266    	; 0x316e <main+0x190>
+    3064:	97 c0       	rjmp	.+302    	; 0x3194 <main+0x1b6>
+		//Forward
+		case 0:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+    3066:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    306a:	81 30       	cpi	r24, 0x01	; 1
+    306c:	69 f4       	brne	.+26     	; 0x3088 <main+0xaa>
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    306e:	82 e0       	ldi	r24, 0x02	; 2
+    3070:	60 e0       	ldi	r22, 0x00	; 0
+    3072:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Forward_ADDRESS);
+    3076:	80 91 dd 01 	lds	r24, 0x01DD
+    307a:	0e 94 47 15 	call	0x2a8e	; 0x2a8e <LCD_voidDisplaySpecialChar>
+				//Start the motors
+				MTR_voidMovement(MTR_FORWARD, 250);
+    307e:	81 e0       	ldi	r24, 0x01	; 1
+    3080:	6a ef       	ldi	r22, 0xFA	; 250
+    3082:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
+    3086:	86 c0       	rjmp	.+268    	; 0x3194 <main+0x1b6>
+			}
+
+			//Check if there is not any obstacles ahead
+			else if(Ultrasonic_Servo_BoolCheckFrontSide()==FALSE) {
+    3088:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    308c:	88 23       	and	r24, r24
+    308e:	09 f0       	breq	.+2      	; 0x3092 <main+0xb4>
+    3090:	81 c0       	rjmp	.+258    	; 0x3194 <main+0x1b6>
+				//Stop the motors
+				MTR_voidMovement(MTR_STOP, 0);
+    3092:	80 e0       	ldi	r24, 0x00	; 0
+    3094:	60 e0       	ldi	r22, 0x00	; 0
+    3096:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
+
+				//Send stop to the LCD
+				LCD_voidWriteString("Stop.");
+    309a:	80 e6       	ldi	r24, 0x60	; 96
+    309c:	90 e0       	ldi	r25, 0x00	; 0
+    309e:	0e 94 28 14 	call	0x2850	; 0x2850 <LCD_voidWriteString>
+
+				//Do to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    30a2:	82 e0       	ldi	r24, 0x02	; 2
+    30a4:	60 e0       	ldi	r22, 0x00	; 0
+    30a6:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+
+				MovementState = 1;
+    30aa:	81 e0       	ldi	r24, 0x01	; 1
+    30ac:	8f 87       	std	Y+15, r24	; 0x0f
+    30ae:	72 c0       	rjmp	.+228    	; 0x3194 <main+0x1b6>
+			}
+			break;
+		//Check sides
+		case 1:
+			if( ( Ultrasonic_Servo_BoolCheckRightSide() && Ultrasonic_Servo_BoolCheckFrontSide() && Ultrasonic_Servo_BoolCheckLiftSide() )==TRUE) {
+    30b0:	0e 94 03 16 	call	0x2c06	; 0x2c06 <Ultrasonic_Servo_BoolCheckRightSide>
+    30b4:	88 23       	and	r24, r24
+    30b6:	69 f0       	breq	.+26     	; 0x30d2 <main+0xf4>
+    30b8:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    30bc:	88 23       	and	r24, r24
+    30be:	49 f0       	breq	.+18     	; 0x30d2 <main+0xf4>
+    30c0:	0e 94 4b 17 	call	0x2e96	; 0x2e96 <Ultrasonic_Servo_BoolCheckLiftSide>
+    30c4:	88 23       	and	r24, r24
+    30c6:	29 f0       	breq	.+10     	; 0x30d2 <main+0xf4>
+    30c8:	21 e0       	ldi	r18, 0x01	; 1
+    30ca:	30 e0       	ldi	r19, 0x00	; 0
+    30cc:	39 8b       	std	Y+17, r19	; 0x11
+    30ce:	28 8b       	std	Y+16, r18	; 0x10
+    30d0:	02 c0       	rjmp	.+4      	; 0x30d6 <main+0xf8>
+    30d2:	19 8a       	std	Y+17, r1	; 0x11
+    30d4:	18 8a       	std	Y+16, r1	; 0x10
+    30d6:	88 89       	ldd	r24, Y+16	; 0x10
+    30d8:	99 89       	ldd	r25, Y+17	; 0x11
+    30da:	81 30       	cpi	r24, 0x01	; 1
+    30dc:	91 05       	cpc	r25, r1
+    30de:	51 f4       	brne	.+20     	; 0x30f4 <main+0x116>
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    30e0:	82 e0       	ldi	r24, 0x02	; 2
+    30e2:	60 e0       	ldi	r22, 0x00	; 0
+    30e4:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+
+				LCD_voidWriteString("ALL sides are free.");
+    30e8:	86 e6       	ldi	r24, 0x66	; 102
+    30ea:	90 e0       	ldi	r25, 0x00	; 0
+    30ec:	0e 94 28 14 	call	0x2850	; 0x2850 <LCD_voidWriteString>
+
+				MovementState = 0;
+    30f0:	1f 86       	std	Y+15, r1	; 0x0f
+    30f2:	50 c0       	rjmp	.+160    	; 0x3194 <main+0x1b6>
+			}
+			else if(Ultrasonic_Servo_BoolCheckRightSide()==TRUE) {
+    30f4:	0e 94 03 16 	call	0x2c06	; 0x2c06 <Ultrasonic_Servo_BoolCheckRightSide>
+    30f8:	81 30       	cpi	r24, 0x01	; 1
+    30fa:	19 f4       	brne	.+6      	; 0x3102 <main+0x124>
+					MovementState = 2;
+    30fc:	82 e0       	ldi	r24, 0x02	; 2
+    30fe:	8f 87       	std	Y+15, r24	; 0x0f
+    3100:	49 c0       	rjmp	.+146    	; 0x3194 <main+0x1b6>
+			}
+			else if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+    3102:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    3106:	81 30       	cpi	r24, 0x01	; 1
+    3108:	11 f4       	brne	.+4      	; 0x310e <main+0x130>
+					MovementState = 0;
+    310a:	1f 86       	std	Y+15, r1	; 0x0f
+    310c:	43 c0       	rjmp	.+134    	; 0x3194 <main+0x1b6>
+			}
+			else if (Ultrasonic_Servo_BoolCheckLiftSide()==TRUE) {
+    310e:	0e 94 4b 17 	call	0x2e96	; 0x2e96 <Ultrasonic_Servo_BoolCheckLiftSide>
+    3112:	81 30       	cpi	r24, 0x01	; 1
+    3114:	19 f4       	brne	.+6      	; 0x311c <main+0x13e>
+					MovementState = 3;
+    3116:	83 e0       	ldi	r24, 0x03	; 3
+    3118:	8f 87       	std	Y+15, r24	; 0x0f
+    311a:	3c c0       	rjmp	.+120    	; 0x3194 <main+0x1b6>
+			}
+			else {
+				//Stop the motors
+				MTR_voidMovement(MTR_REVERSE, 250);
+    311c:	82 e0       	ldi	r24, 0x02	; 2
+    311e:	6a ef       	ldi	r22, 0xFA	; 250
+    3120:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
+
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    3124:	82 e0       	ldi	r24, 0x02	; 2
+    3126:	60 e0       	ldi	r22, 0x00	; 0
+    3128:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+
+				LCD_voidWriteString("No free sides.");
+    312c:	8a e7       	ldi	r24, 0x7A	; 122
+    312e:	90 e0       	ldi	r25, 0x00	; 0
+    3130:	0e 94 28 14 	call	0x2850	; 0x2850 <LCD_voidWriteString>
+
+
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(3,0);
+    3134:	83 e0       	ldi	r24, 0x03	; 3
+    3136:	60 e0       	ldi	r22, 0x00	; 0
+    3138:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+
+				//Send reverse to the LCD
+				LCD_voidWriteString("Reversing.");
+    313c:	89 e8       	ldi	r24, 0x89	; 137
+    313e:	90 e0       	ldi	r25, 0x00	; 0
+    3140:	0e 94 28 14 	call	0x2850	; 0x2850 <LCD_voidWriteString>
+    3144:	27 c0       	rjmp	.+78     	; 0x3194 <main+0x1b6>
+			}
+			break;
+		//Movement to the right
+		case 2:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+    3146:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    314a:	81 30       	cpi	r24, 0x01	; 1
+    314c:	69 f4       	brne	.+26     	; 0x3168 <main+0x18a>
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    314e:	82 e0       	ldi	r24, 0x02	; 2
+    3150:	60 e0       	ldi	r22, 0x00	; 0
+    3152:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Right_ADDRESS);
+    3156:	80 91 a1 01 	lds	r24, 0x01A1
+    315a:	0e 94 47 15 	call	0x2a8e	; 0x2a8e <LCD_voidDisplaySpecialChar>
+				//Start the motors
+				MTR_voidMovement(MTR_RIGHT, 250);
+    315e:	83 e0       	ldi	r24, 0x03	; 3
+    3160:	6a ef       	ldi	r22, 0xFA	; 250
+    3162:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
+    3166:	16 c0       	rjmp	.+44     	; 0x3194 <main+0x1b6>
+			}
+			else {
+				MovementState = 1;
+    3168:	81 e0       	ldi	r24, 0x01	; 1
+    316a:	8f 87       	std	Y+15, r24	; 0x0f
+    316c:	13 c0       	rjmp	.+38     	; 0x3194 <main+0x1b6>
+			}
+			break;
+		//Movement to the lift
+		case 3:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+    316e:	0e 94 a7 16 	call	0x2d4e	; 0x2d4e <Ultrasonic_Servo_BoolCheckFrontSide>
+    3172:	81 30       	cpi	r24, 0x01	; 1
+    3174:	69 f4       	brne	.+26     	; 0x3190 <main+0x1b2>
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+    3176:	82 e0       	ldi	r24, 0x02	; 2
+    3178:	60 e0       	ldi	r22, 0x00	; 0
+    317a:	0e 94 53 14 	call	0x28a6	; 0x28a6 <LCD_voidGoToXY>
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Lift_ADDRESS);
+    317e:	80 91 a2 01 	lds	r24, 0x01A2
+    3182:	0e 94 47 15 	call	0x2a8e	; 0x2a8e <LCD_voidDisplaySpecialChar>
+				//Start the motors
+				MTR_voidMovement(MTR_LEFT, 250);
+    3186:	84 e0       	ldi	r24, 0x04	; 4
+    3188:	6a ef       	ldi	r22, 0xFA	; 250
+    318a:	0e 94 35 11 	call	0x226a	; 0x226a <MTR_voidMovement>
+    318e:	02 c0       	rjmp	.+4      	; 0x3194 <main+0x1b6>
+			}
+			else {
+				MovementState = 1;
+    3190:	81 e0       	ldi	r24, 0x01	; 1
+    3192:	8f 87       	std	Y+15, r24	; 0x0f
+    3194:	80 e0       	ldi	r24, 0x00	; 0
+    3196:	90 e0       	ldi	r25, 0x00	; 0
+    3198:	aa ef       	ldi	r26, 0xFA	; 250
+    319a:	b3 e4       	ldi	r27, 0x43	; 67
+    319c:	8b 87       	std	Y+11, r24	; 0x0b
+    319e:	9c 87       	std	Y+12, r25	; 0x0c
+    31a0:	ad 87       	std	Y+13, r26	; 0x0d
+    31a2:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    31a4:	6b 85       	ldd	r22, Y+11	; 0x0b
+    31a6:	7c 85       	ldd	r23, Y+12	; 0x0c
+    31a8:	8d 85       	ldd	r24, Y+13	; 0x0d
+    31aa:	9e 85       	ldd	r25, Y+14	; 0x0e
+    31ac:	20 e0       	ldi	r18, 0x00	; 0
+    31ae:	30 e0       	ldi	r19, 0x00	; 0
+    31b0:	4a e7       	ldi	r20, 0x7A	; 122
+    31b2:	55 e4       	ldi	r21, 0x45	; 69
+    31b4:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    31b8:	dc 01       	movw	r26, r24
+    31ba:	cb 01       	movw	r24, r22
+    31bc:	8f 83       	std	Y+7, r24	; 0x07
+    31be:	98 87       	std	Y+8, r25	; 0x08
+    31c0:	a9 87       	std	Y+9, r26	; 0x09
+    31c2:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    31c4:	6f 81       	ldd	r22, Y+7	; 0x07
+    31c6:	78 85       	ldd	r23, Y+8	; 0x08
+    31c8:	89 85       	ldd	r24, Y+9	; 0x09
+    31ca:	9a 85       	ldd	r25, Y+10	; 0x0a
+    31cc:	20 e0       	ldi	r18, 0x00	; 0
+    31ce:	30 e0       	ldi	r19, 0x00	; 0
+    31d0:	40 e8       	ldi	r20, 0x80	; 128
+    31d2:	5f e3       	ldi	r21, 0x3F	; 63
+    31d4:	0e 94 25 04 	call	0x84a	; 0x84a <__ltsf2>
+    31d8:	88 23       	and	r24, r24
+    31da:	2c f4       	brge	.+10     	; 0x31e6 <main+0x208>
+		__ticks = 1;
+    31dc:	81 e0       	ldi	r24, 0x01	; 1
+    31de:	90 e0       	ldi	r25, 0x00	; 0
+    31e0:	9e 83       	std	Y+6, r25	; 0x06
+    31e2:	8d 83       	std	Y+5, r24	; 0x05
+    31e4:	3f c0       	rjmp	.+126    	; 0x3264 <main+0x286>
+	else if (__tmp > 65535)
+    31e6:	6f 81       	ldd	r22, Y+7	; 0x07
+    31e8:	78 85       	ldd	r23, Y+8	; 0x08
+    31ea:	89 85       	ldd	r24, Y+9	; 0x09
+    31ec:	9a 85       	ldd	r25, Y+10	; 0x0a
+    31ee:	20 e0       	ldi	r18, 0x00	; 0
+    31f0:	3f ef       	ldi	r19, 0xFF	; 255
+    31f2:	4f e7       	ldi	r20, 0x7F	; 127
+    31f4:	57 e4       	ldi	r21, 0x47	; 71
+    31f6:	0e 94 c5 03 	call	0x78a	; 0x78a <__gtsf2>
+    31fa:	18 16       	cp	r1, r24
+    31fc:	4c f5       	brge	.+82     	; 0x3250 <main+0x272>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    31fe:	6b 85       	ldd	r22, Y+11	; 0x0b
+    3200:	7c 85       	ldd	r23, Y+12	; 0x0c
+    3202:	8d 85       	ldd	r24, Y+13	; 0x0d
+    3204:	9e 85       	ldd	r25, Y+14	; 0x0e
+    3206:	20 e0       	ldi	r18, 0x00	; 0
+    3208:	30 e0       	ldi	r19, 0x00	; 0
+    320a:	40 e2       	ldi	r20, 0x20	; 32
+    320c:	51 e4       	ldi	r21, 0x41	; 65
+    320e:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+    3212:	dc 01       	movw	r26, r24
+    3214:	cb 01       	movw	r24, r22
+    3216:	bc 01       	movw	r22, r24
+    3218:	cd 01       	movw	r24, r26
+    321a:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    321e:	dc 01       	movw	r26, r24
+    3220:	cb 01       	movw	r24, r22
+    3222:	9e 83       	std	Y+6, r25	; 0x06
+    3224:	8d 83       	std	Y+5, r24	; 0x05
+    3226:	0f c0       	rjmp	.+30     	; 0x3246 <main+0x268>
+    3228:	80 e9       	ldi	r24, 0x90	; 144
+    322a:	91 e0       	ldi	r25, 0x01	; 1
+    322c:	9c 83       	std	Y+4, r25	; 0x04
+    322e:	8b 83       	std	Y+3, r24	; 0x03
+    3230:	8b 81       	ldd	r24, Y+3	; 0x03
+    3232:	9c 81       	ldd	r25, Y+4	; 0x04
+    3234:	01 97       	sbiw	r24, 0x01	; 1
+    3236:	f1 f7       	brne	.-4      	; 0x3234 <main+0x256>
+    3238:	9c 83       	std	Y+4, r25	; 0x04
+    323a:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    323c:	8d 81       	ldd	r24, Y+5	; 0x05
+    323e:	9e 81       	ldd	r25, Y+6	; 0x06
+    3240:	01 97       	sbiw	r24, 0x01	; 1
+    3242:	9e 83       	std	Y+6, r25	; 0x06
+    3244:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    3246:	8d 81       	ldd	r24, Y+5	; 0x05
+    3248:	9e 81       	ldd	r25, Y+6	; 0x06
+    324a:	00 97       	sbiw	r24, 0x00	; 0
+    324c:	69 f7       	brne	.-38     	; 0x3228 <main+0x24a>
+    324e:	dc ce       	rjmp	.-584    	; 0x3008 <main+0x2a>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    3250:	6f 81       	ldd	r22, Y+7	; 0x07
+    3252:	78 85       	ldd	r23, Y+8	; 0x08
+    3254:	89 85       	ldd	r24, Y+9	; 0x09
+    3256:	9a 85       	ldd	r25, Y+10	; 0x0a
+    3258:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+    325c:	dc 01       	movw	r26, r24
+    325e:	cb 01       	movw	r24, r22
+    3260:	9e 83       	std	Y+6, r25	; 0x06
+    3262:	8d 83       	std	Y+5, r24	; 0x05
+    3264:	8d 81       	ldd	r24, Y+5	; 0x05
+    3266:	9e 81       	ldd	r25, Y+6	; 0x06
+    3268:	9a 83       	std	Y+2, r25	; 0x02
+    326a:	89 83       	std	Y+1, r24	; 0x01
+    326c:	89 81       	ldd	r24, Y+1	; 0x01
+    326e:	9a 81       	ldd	r25, Y+2	; 0x02
+    3270:	01 97       	sbiw	r24, 0x01	; 1
+    3272:	f1 f7       	brne	.-4      	; 0x3270 <main+0x292>
+    3274:	9a 83       	std	Y+2, r25	; 0x02
+    3276:	89 83       	std	Y+1, r24	; 0x01
+    3278:	c7 ce       	rjmp	.-626    	; 0x3008 <main+0x2a>
+
+0000327a <__mulsi3>:
+    327a:	62 9f       	mul	r22, r18
+    327c:	d0 01       	movw	r26, r0
+    327e:	73 9f       	mul	r23, r19
+    3280:	f0 01       	movw	r30, r0
+    3282:	82 9f       	mul	r24, r18
+    3284:	e0 0d       	add	r30, r0
+    3286:	f1 1d       	adc	r31, r1
+    3288:	64 9f       	mul	r22, r20
+    328a:	e0 0d       	add	r30, r0
+    328c:	f1 1d       	adc	r31, r1
+    328e:	92 9f       	mul	r25, r18
+    3290:	f0 0d       	add	r31, r0
+    3292:	83 9f       	mul	r24, r19
+    3294:	f0 0d       	add	r31, r0
+    3296:	74 9f       	mul	r23, r20
+    3298:	f0 0d       	add	r31, r0
+    329a:	65 9f       	mul	r22, r21
+    329c:	f0 0d       	add	r31, r0
+    329e:	99 27       	eor	r25, r25
+    32a0:	72 9f       	mul	r23, r18
+    32a2:	b0 0d       	add	r27, r0
+    32a4:	e1 1d       	adc	r30, r1
+    32a6:	f9 1f       	adc	r31, r25
+    32a8:	63 9f       	mul	r22, r19
+    32aa:	b0 0d       	add	r27, r0
+    32ac:	e1 1d       	adc	r30, r1
+    32ae:	f9 1f       	adc	r31, r25
+    32b0:	bd 01       	movw	r22, r26
+    32b2:	cf 01       	movw	r24, r30
+    32b4:	11 24       	eor	r1, r1
+    32b6:	08 95       	ret
+
+000032b8 <__udivmodsi4>:
+    32b8:	a1 e2       	ldi	r26, 0x21	; 33
+    32ba:	1a 2e       	mov	r1, r26
+    32bc:	aa 1b       	sub	r26, r26
+    32be:	bb 1b       	sub	r27, r27
+    32c0:	fd 01       	movw	r30, r26
+    32c2:	0d c0       	rjmp	.+26     	; 0x32de <__udivmodsi4_ep>
+
+000032c4 <__udivmodsi4_loop>:
+    32c4:	aa 1f       	adc	r26, r26
+    32c6:	bb 1f       	adc	r27, r27
+    32c8:	ee 1f       	adc	r30, r30
+    32ca:	ff 1f       	adc	r31, r31
+    32cc:	a2 17       	cp	r26, r18
+    32ce:	b3 07       	cpc	r27, r19
+    32d0:	e4 07       	cpc	r30, r20
+    32d2:	f5 07       	cpc	r31, r21
+    32d4:	20 f0       	brcs	.+8      	; 0x32de <__udivmodsi4_ep>
+    32d6:	a2 1b       	sub	r26, r18
+    32d8:	b3 0b       	sbc	r27, r19
+    32da:	e4 0b       	sbc	r30, r20
+    32dc:	f5 0b       	sbc	r31, r21
+
+000032de <__udivmodsi4_ep>:
+    32de:	66 1f       	adc	r22, r22
+    32e0:	77 1f       	adc	r23, r23
+    32e2:	88 1f       	adc	r24, r24
+    32e4:	99 1f       	adc	r25, r25
+    32e6:	1a 94       	dec	r1
+    32e8:	69 f7       	brne	.-38     	; 0x32c4 <__udivmodsi4_loop>
+    32ea:	60 95       	com	r22
+    32ec:	70 95       	com	r23
+    32ee:	80 95       	com	r24
+    32f0:	90 95       	com	r25
+    32f2:	9b 01       	movw	r18, r22
+    32f4:	ac 01       	movw	r20, r24
+    32f6:	bd 01       	movw	r22, r26
+    32f8:	cf 01       	movw	r24, r30
+    32fa:	08 95       	ret
+
+000032fc <__prologue_saves__>:
+    32fc:	2f 92       	push	r2
+    32fe:	3f 92       	push	r3
+    3300:	4f 92       	push	r4
+    3302:	5f 92       	push	r5
+    3304:	6f 92       	push	r6
+    3306:	7f 92       	push	r7
+    3308:	8f 92       	push	r8
+    330a:	9f 92       	push	r9
+    330c:	af 92       	push	r10
+    330e:	bf 92       	push	r11
+    3310:	cf 92       	push	r12
+    3312:	df 92       	push	r13
+    3314:	ef 92       	push	r14
+    3316:	ff 92       	push	r15
+    3318:	0f 93       	push	r16
+    331a:	1f 93       	push	r17
+    331c:	cf 93       	push	r28
+    331e:	df 93       	push	r29
+    3320:	cd b7       	in	r28, 0x3d	; 61
+    3322:	de b7       	in	r29, 0x3e	; 62
+    3324:	ca 1b       	sub	r28, r26
+    3326:	db 0b       	sbc	r29, r27
+    3328:	0f b6       	in	r0, 0x3f	; 63
+    332a:	f8 94       	cli
+    332c:	de bf       	out	0x3e, r29	; 62
+    332e:	0f be       	out	0x3f, r0	; 63
+    3330:	cd bf       	out	0x3d, r28	; 61
+    3332:	09 94       	ijmp
+
+00003334 <__epilogue_restores__>:
+    3334:	2a 88       	ldd	r2, Y+18	; 0x12
+    3336:	39 88       	ldd	r3, Y+17	; 0x11
+    3338:	48 88       	ldd	r4, Y+16	; 0x10
+    333a:	5f 84       	ldd	r5, Y+15	; 0x0f
+    333c:	6e 84       	ldd	r6, Y+14	; 0x0e
+    333e:	7d 84       	ldd	r7, Y+13	; 0x0d
+    3340:	8c 84       	ldd	r8, Y+12	; 0x0c
+    3342:	9b 84       	ldd	r9, Y+11	; 0x0b
+    3344:	aa 84       	ldd	r10, Y+10	; 0x0a
+    3346:	b9 84       	ldd	r11, Y+9	; 0x09
+    3348:	c8 84       	ldd	r12, Y+8	; 0x08
+    334a:	df 80       	ldd	r13, Y+7	; 0x07
+    334c:	ee 80       	ldd	r14, Y+6	; 0x06
+    334e:	fd 80       	ldd	r15, Y+5	; 0x05
+    3350:	0c 81       	ldd	r16, Y+4	; 0x04
+    3352:	1b 81       	ldd	r17, Y+3	; 0x03
+    3354:	aa 81       	ldd	r26, Y+2	; 0x02
+    3356:	b9 81       	ldd	r27, Y+1	; 0x01
+    3358:	ce 0f       	add	r28, r30
+    335a:	d1 1d       	adc	r29, r1
+    335c:	0f b6       	in	r0, 0x3f	; 63
+    335e:	f8 94       	cli
+    3360:	de bf       	out	0x3e, r29	; 62
+    3362:	0f be       	out	0x3f, r0	; 63
+    3364:	cd bf       	out	0x3d, r28	; 61
+    3366:	ed 01       	movw	r28, r26
+    3368:	08 95       	ret
+
+0000336a <_exit>:
+    336a:	f8 94       	cli
+
+0000336c <__stop_program>:
+    336c:	ff cf       	rjmp	.-2      	; 0x336c <__stop_program>
