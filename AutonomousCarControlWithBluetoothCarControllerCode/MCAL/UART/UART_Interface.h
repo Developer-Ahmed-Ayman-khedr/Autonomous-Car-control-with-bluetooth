@@ -1,12 +1,12 @@
 /*
- * TIMER1_Private.h
+ * UART_Interface.h
  *
- *  Created on: September 18, 2024
+ *  Created on: Oct 3, 2024
  *      Author: ahmed
  */
 
-#ifndef TIMER1_TIMER1_PRIVATE_H_
-#define TIMER1_TIMER1_PRIVATE_H_
+#ifndef MCAL_UART_UART_INTERFACE_H_
+#define MCAL_UART_UART_INTERFACE_H_
 
 /******************************************
   INCLUDES
@@ -17,27 +17,16 @@
   Global Data TYPES AND STRUCTURES
 *******************************************/
 
+typedef enum
+{
+	UART_NO_ERROR ,
+	UART_TIME_OUT_ERROR,
+	UART_NULL_ERROR
+}UART_ERROR;
 
 /******************************************
   GLOBAL CONSTANT MACROS
 *******************************************/
-
-#define TCCR1A_REG   *((volatile u8 *)0x4F)
-#define WGM10         0
-#define WGM11         1
-#define COM1A0        6
-#define COM1A1        7
-
-#define TCCR1B_REG   *((volatile u8 *)0x4E)
-#define WGM12         3
-#define WGM13         4
-#define CS10          0
-#define CS11          1
-#define CS12          2
-
-
-#define OCR1A_REG    *((volatile u16 *)0x4A)
-#define ICR1_REG     *((volatile u16 *)0x46)
 
 
 /******************************************
@@ -49,4 +38,11 @@
   GLOBAL FUNCTIONS Prototypes
 *******************************************/
 
-#endif /* TIMER1_TIMER1_PRIVATE_H_ */
+void UART_VoidInit(void);
+UART_ERROR UART_VoidSendChar(u8 Copy_U8_Data);
+void UART_VoidSendString(u8* PO_U8_Data);
+
+UART_ERROR UART_U8ReceiveChar(u8 *copy_p8_Data ) ;
+void UART_VoidReceiveString(u8* PO_U8_Data);
+
+#endif /* MCAL_UART_UART_INTERFACE_H_ */

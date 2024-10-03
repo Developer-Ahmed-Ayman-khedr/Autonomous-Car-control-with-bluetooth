@@ -1,12 +1,13 @@
 /*
- * TIMER1_int.h
+ * SERVO_Private.h
  *
- *  Created on: ???/???/????
- *      Author: dell
+ *  Created on: Oct 3, 2024
+ *      Author: ahmed
  */
 
-#ifndef TIMER1_TIMER1_INT_H_
-#define TIMER1_TIMER1_INT_H_
+
+#ifndef MCAL_UART_UART_PRIVATE_H_
+#define MCAL_UART_UART_PRIVATE_H_
 
 /******************************************
   INCLUDES
@@ -32,14 +33,5 @@
   GLOBAL FUNCTIONS Prototypes
 *******************************************/
 
-void TIMER1_voidPwm1Init(void);
 
-void TIMER1_voidPwm1SetTop(void);
-
-void TIMER1_voidPwm1SetDutyCycle(void);
-
-void TIMER1_voidPwm1Start(void);
-
-void TIMER1_voidPwm1Stop(void);
-
-#endif /* TIMER1_TIMER1_INT_H_ */
+#endif /* MCAL_UART_UART_PRIVATE_H_ */

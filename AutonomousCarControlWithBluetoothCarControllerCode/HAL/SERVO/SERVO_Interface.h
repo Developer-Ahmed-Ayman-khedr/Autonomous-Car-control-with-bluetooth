@@ -1,18 +1,19 @@
-
 /*
- * TIMER1_Interface.h
+ * SERVO_Interface.h
  *
- *  Created on: September 18, 2024
+ *  Created on: Oct 3, 2024
  *      Author: ahmed
  */
 
-#ifndef TIMER1_TIMER1_CONFIG_H_
-#define TIMER1_TIMER1_CONFIG_H_
+#ifndef MCAL_UART_UART_INTERFACE_H_
+#define MCAL_UART_UART_INTERFACE_H_
 
 /******************************************
   INCLUDES
 *******************************************/
 
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
 /******************************************
   Global Data TYPES AND STRUCTURES
@@ -23,16 +24,6 @@
   GLOBAL CONSTANT MACROS
 *******************************************/
 
-/*
- * select TIMER1_PRESCALER prescaler : 1024  , 256 , 64 , 8
- *
- */
-#define TIMER1_PRESCALER       8
-
-/*
- *  choose F_OSC
- */
-#define F_OSC    16
 
 /******************************************
   GLOBAL FUNCTIONS MACROS
@@ -42,6 +33,8 @@
 /******************************************
   GLOBAL FUNCTIONS Prototypes
 *******************************************/
+void SERVO_voidInit();
 
+void Servo_voidSetAngle(s8 copy_s8angle);
 
-#endif /* TIMER1_TIMER1_CONFIG_H_ */
+#endif /* MCAL_UART_UART_INTERFACE_H_ */

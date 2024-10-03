@@ -1,21 +1,26 @@
 /*
- * TIMER1_Program.c
+ * TMR1_Program.c
  *
  *  Created on: September 18, 2024
  *      Author: ahmed
  */
 
-
-#include <TIMER1_Interface.h>
-#include <TIMER1_Private.h>
+/*--------------------------------------------------------------------------------------------*/
+/*   INCLUDES   */
+/*--------------------------------------------------------------------------------------------*/
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
 #include "DIO_Interface.h"
-#include "TIMER1_config.h"
+
+#include "TMR1_Config.h"
+#include "TMR1_Interface.h"
+#include "TMR1_Private.h"
 
 
-
+/*--------------------------------------------------------------------------------------------*/
+/*   FUNCTIONS BODY   */
+/*--------------------------------------------------------------------------------------------*/
 void TIMER1_voidPwm1Init(void)
 {
 	/* to enable output circuit for PD5 pin */
@@ -32,19 +37,18 @@ void TIMER1_voidPwm1Init(void)
 	SET_BIT(TCCR1A_REG,COM1A1);
 	CLR_BIT(TCCR1A_REG,COM1A0);
 }
-void TIMER1_voidPwm1SetTop(void)
+void TIMER1_voidPwm1SetTop(u32 copy_u32top)
 {
 	//PRESCALER = 8  at  16M F
-	/*ICR1_REG=624;*/
-	ICR1_REG = 40000;
+	ICR1_REG = copy_u32top;
 }
 
-void TIMER1_voidPwm1SetDutyCycle(void)
+void TIMER1_voidPwm1SetDutyCycle(u32 copy_u32duty)
 {
 	// pass num between 25 and 65
 	//OCR1A_REG = 62;
 
-	OCR1A_REG = 30500;
+	OCR1A_REG = copy_u32duty;
 
 }
 void TIMER1_voidPwm1Start(void)
