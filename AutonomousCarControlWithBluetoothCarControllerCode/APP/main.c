@@ -24,6 +24,7 @@
 
 #include "UART_Interface.h"
 
+
 /*--------------------------------------------------------------------------------------------*/
 //LCD Motor custom characters addresses
 u8 LCD_MTR_Forward_ADDRESS = (u8)0;
@@ -163,33 +164,21 @@ BOOL Ultrasonic_Servo_BoolCheckLiftSide(){
 }
 
 /*--------------------------------------------------------------------------------------------*/
+//UART Read
+#define UART_MTR_CONTINUE (u8)1
 
-int main(){
+/*--------------------------------------------------------------------------------------------*/
+//SystemMode
+#define AUTONOMOUSMODE 	(u8)1
 
-	//LCD
-	LCD_voidInit();
+#define BLUETOOTHMODE 	(u8)2
 
-	LCD_MTR_VoidCustomCharacters();
+/*--------------------------------------------------------------------------------------------*/
+//AutonomousMode
+void AutonomousMode_voidMain(){
+	static u8 AutonomousModeMovementState = 0;
 
-	//Motor
-	u8 MovementState = 0;
-	MTR_voidInit();
-
-	//SERVO
-	SERVO_voidInit();
-
-	//ULTRASONIC
-	ULTRASONIC_voidInit();
-
-	while (1){
-
-		//Clear the display
-		LCD_voidClear();
-
-		//Write the distance to the LCD
-		LCD_voidWriteNumber(UltrasonicRead);
-
-		switch(MovementState){
+	switch(AutonomousModeMovementState){
 		//Forward
 		case 0:
 			//Check if there is not any obstacles ahead
@@ -214,7 +203,7 @@ int main(){
 				//Do to the second row in the LCD
 				LCD_voidGoToXY(2,0);
 
-				MovementState = 1;
+				AutonomousModeMovementState = 1;
 			}
 			break;
 		//Check sides
@@ -225,16 +214,16 @@ int main(){
 
 				LCD_voidWriteString("ALL sides are free.");
 
-				MovementState = 0;
+				AutonomousModeMovementState = 0;
 			}
 			else if(Ultrasonic_Servo_BoolCheckRightSide()==TRUE) {
-					MovementState = 2;
+				AutonomousModeMovementState = 2;
 			}
 			else if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
-					MovementState = 0;
+				AutonomousModeMovementState = 0;
 			}
 			else if (Ultrasonic_Servo_BoolCheckLiftSide()==TRUE) {
-					MovementState = 3;
+				AutonomousModeMovementState = 3;
 			}
 			else {
 				//Stop the motors
@@ -265,7 +254,7 @@ int main(){
 				MTR_voidMovement(MTR_RIGHT, 250);
 			}
 			else {
-				MovementState = 1;
+				AutonomousModeMovementState = 1;
 			}
 			break;
 		//Movement to the lift
@@ -280,12 +269,233 @@ int main(){
 				MTR_voidMovement(MTR_LEFT, 250);
 			}
 			else {
-				MovementState = 1;
+				AutonomousModeMovementState = 1;
 			}
 			break;
 		default:
+			LCD_voidWriteString("Error.");
 			break;
 		}
+}
+/*--------------------------------------------------------------------------------------------*/
+//BluetoothMode
+void BluetoothMode_voidMain(){
+	static u8 BluetoothModeMovementState = 0;
+
+	switch(BluetoothModeMovementState){
+		//Forward
+		case 0:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Forward_ADDRESS);
+				//Start the motors
+				MTR_voidMovement(MTR_FORWARD, 250);
+			}
+
+			//Check if there is not any obstacles ahead
+			else if(Ultrasonic_Servo_BoolCheckFrontSide()==FALSE) {
+				//Stop the motors
+				MTR_voidMovement(MTR_STOP, 0);
+
+				//Send stop to the LCD
+				LCD_voidWriteString("Stop.");
+
+				//Go to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				BluetoothModeMovementState = 1;
+			}
+			break;
+		//Check sides
+		case 1:
+			if( ( Ultrasonic_Servo_BoolCheckRightSide() && Ultrasonic_Servo_BoolCheckFrontSide() && Ultrasonic_Servo_BoolCheckLiftSide() )==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				LCD_voidWriteString("ALL sides are free.");
+
+				//Send the options to the user using UART
+				UART_VoidSendString("\r\nALL sides are free.\r\n");
+				UART_VoidSendString("1.Forward 2.Right 3.Lift\r\n");
+
+				//Read the UART
+				if (UART_VoidReceiveString(&BluetoothModeMovementState)!=UART_TIME_OUT_ERROR) {
+					UART_VoidSendChar(BluetoothModeMovementState);
+					BluetoothModeMovementState-=1;
+				}
+			}
+			else if(Ultrasonic_Servo_BoolCheckRightSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				LCD_voidWriteString("Right side is empty.");
+
+				//Send the options to the user using UART
+				UART_VoidSendString("\r\nRight side is empty.\r\n");
+				UART_VoidSendString("1.Continue\r\n");
+
+				//Read the UART
+				if (UART_VoidReceiveString(&BluetoothModeMovementState)!=UART_TIME_OUT_ERROR) {
+					UART_VoidSendChar(BluetoothModeMovementState);
+					if(BluetoothModeMovementState==UART_MTR_CONTINUE) {
+						BluetoothModeMovementState = 2;
+					}
+				}
+			}
+			else if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				LCD_voidWriteString("Front side is empty.");
+
+				//Send the options to the user using UART
+				UART_VoidSendString("\r\nFront side is empty.\r\n");
+				UART_VoidSendString("1.Continue\r\n");
+
+				//Read the UART
+				if (UART_VoidReceiveString(&BluetoothModeMovementState)!=UART_TIME_OUT_ERROR) {
+					UART_VoidSendChar(BluetoothModeMovementState);
+					if(BluetoothModeMovementState==UART_MTR_CONTINUE) {
+						BluetoothModeMovementState = 0;
+					}
+				}
+
+			}
+			else if (Ultrasonic_Servo_BoolCheckLiftSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				LCD_voidWriteString("Lift side is empty.");
+
+				//Send the options to the user using UART
+				UART_VoidSendString("\r\nLift side is empty.\r\n");
+				UART_VoidSendString("1.Continue\r\n");
+
+				//Read the UART
+				if (UART_VoidReceiveString(&BluetoothModeMovementState)!=UART_TIME_OUT_ERROR) {
+					UART_VoidSendChar(BluetoothModeMovementState);
+					if(BluetoothModeMovementState==UART_MTR_CONTINUE) {
+						BluetoothModeMovementState = 3;
+					}
+				}
+
+			}
+			else {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+
+				LCD_voidWriteString("ALL sides are not free.");
+
+				//Send the options to the user using UART
+				UART_VoidSendString("\r\nALL sides are not free.\r\n");
+				UART_VoidSendString("1.Reverse\r\n");
+
+				//Read the UART
+				if (UART_VoidReceiveString(&BluetoothModeMovementState)!=UART_TIME_OUT_ERROR) {
+					UART_VoidSendChar(BluetoothModeMovementState);
+					if (BluetoothModeMovementState==UART_MTR_CONTINUE) {
+						//Stop the motors
+						MTR_voidMovement(MTR_REVERSE, 250);
+
+						//Move to the second row in the LCD
+						LCD_voidGoToXY(3,0);
+
+						//Send reverse to the LCD
+						LCD_voidWriteString("Reversing.");
+					}
+				}
+			}
+			break;
+		//Movement to the right
+		case 2:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Right_ADDRESS);
+				//Start the motors
+				MTR_voidMovement(MTR_RIGHT, 250);
+			}
+			else {
+				BluetoothModeMovementState = 1;
+			}
+			break;
+		//Movement to the lift
+		case 3:
+			//Check if there is not any obstacles ahead
+			if(Ultrasonic_Servo_BoolCheckFrontSide()==TRUE) {
+				//Move to the second row in the LCD
+				LCD_voidGoToXY(2,0);
+				//Send forward custom character to the LCD
+				LCD_voidDisplaySpecialChar(LCD_MTR_Lift_ADDRESS);
+				//Start the motors
+				MTR_voidMovement(MTR_LEFT, 250);
+			}
+			else {
+				BluetoothModeMovementState = 1;
+			}
+			break;
+		default:
+			LCD_voidWriteString("Error.");
+			break;
+		}
+}
+/*--------------------------------------------------------------------------------------------*/
+
+int main(){
+
+	//System
+	u8 SystemMode = 0;
+
+	//UART
+	UART_VoidInit();
+
+	//LCD
+	LCD_voidInit();
+
+	LCD_MTR_VoidCustomCharacters();
+
+	//Motor
+	MTR_voidInit();
+
+	//SERVO
+	SERVO_voidInit();
+
+	//ULTRASONIC
+	ULTRASONIC_voidInit();
+
+	while (1){
+
+		//Send the options to the user using UART
+		UART_VoidSendString("\r\nHello\r\n");
+		UART_VoidSendString("1.Autonomous 2.Bluetooth Control\r\n");
+
+		//Read the UART
+		if (UART_VoidReceiveString(&SystemMode)!=UART_TIME_OUT_ERROR) {
+
+			UART_VoidSendChar(SystemMode);
+
+			//Check if the mode is equal to AutonomousMode or BluetoothMode
+			if (SystemMode==AUTONOMOUSMODE){
+				AutonomousMode_voidMain();
+			}
+			else if(SystemMode==BLUETOOTHMODE){
+				BluetoothMode_voidMain();
+			}
+		}
+
+		//Clear the display
+		LCD_voidClear();
+
+		//Write the distance to the LCD
+		LCD_voidWriteNumber(UltrasonicRead);
+
+
 		_delay_ms(500);
 	}
 

@@ -1,9 +1,10 @@
 /*
  * UART_Program.c
  *
- *  Created on: Oct 3, 2024
+ *  Created on: Oct 8, 2024
  *      Author: ahmed
  */
+
 
 /*--------------------------------------------------------------------------------------------*/
 /*   INCLUDES   */
@@ -11,9 +12,12 @@
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include "DIO_Interface.h"
+
 #include "UART_Config.h"
 #include "UART_Interface.h"
 #include "UART_Private.h"
+
+#include "LCD_Interface.h"
 
 
 /*--------------------------------------------------------------------------------------------*/
@@ -55,7 +59,9 @@ void UART_VoidInit(void)
 
 }
 
-
+/*--------------------------------------------------------------------------------------------*/
+/*   FUNCTION BODY   */
+/*--------------------------------------------------------------------------------------------*/
 UART_ERROR UART_VoidSendChar(u8 Copy_U8_Data)
 {
 	/* while(GET_BIT(UCSRA_REG,UCSRA_UDRE_BIT) ==0);
@@ -114,6 +120,9 @@ void UART_VoidReceiveString(u8* PO_U8_Data)
 
 }
 
+/*------------------------------------------------------------------------------------*/
+/*   FUNCTION BODY                                                                    */
+/*------------------------------------------------------------------------------------*/
 
 UART_ERROR UART_U8ReceiveChar(u8 *copy_p8_Data )
 {
@@ -155,5 +164,3 @@ UART_ERROR UART_U8ReceiveChar(u8 *copy_p8_Data )
 
 
 }
-
-
